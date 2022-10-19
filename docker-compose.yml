@@ -1,0 +1,42 @@
+version : '3.7'
+services :
+    php-httpd :
+        image : php:7.3-apache
+        ports :
+            - 80:80
+        volumes :
+            - "./html:/var/www/html"
+        links:
+            - 'mariadb:db'
+
+
+
+    mariadb :
+        image : mariadb:10.5.2
+        volumes :
+            - "./database:/var/lib/mysql"
+        ports:
+            - 3306:3306
+        environment:
+          TZ: "Europa/Madrid"
+          MYSQL_DATABASE: "oversegurity"
+          MYSQL_ROOT_PASSWORD: "root"
+          MYSQL_USER: "security"
+          MYSQL_PASSWORD: "security"
+
+    phpmyadmin :
+        image: phpmyadmin/phpmyadmin
+        links:
+            - 'mariadb:db'
+        ports:
+            - 8081:80
+            
+    
+    
+    myapp:
+        image: bitnami/node
+        command: node index.js
+        networks:
+            - app-tier
+        volumes:
+            - .:/app

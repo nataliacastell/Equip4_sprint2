@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Over Securtity</title>
+  <link rel="stylesheet" href="html kanban/kanban.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  
+</head>
+
+<body>
+
+  <div class="flex-container">
+    <header class="header">
+
+      <h1 type="button" style="text-align: left;">LOGO 
+        
+        <div style="float: right;" class="dropdown">
+          <button class='fa fa-user'></button>
+          <div class="dropdown-content">
+          <a >Perfil</a>
+          <a >Algo</a>
+          <a >Tacar sessio</a>
+          </div>
+        </div>
+
+      </h1>
+      <div class="topnav">
+        <a class="active" href="#home">Kanban</a>
+        <a href="#news">Informe</a>
+        <a href="#contact">Qüestionari</a>
+        <a href="#about">QR</a>
+      </div>
+      
+      
+
+
+    </header>
+    <article class="main">
+
+
+      <div class="flex-container" style="height: 100%; margin-left: 1%;margin-bottom: 30%;">
+        <!--Aqui comença la taula ToDo-->
+        <aside id="toDo" style="border: 2px solid ; max-width: 33%;" class="aside1" ondrop="drop(event)"
+          ondragover="allowDrop(event)">To Do
+            <!--Aqui comença una tasca-->
+          <div id="tasca3" class="flex-container" draggable="true" ondragstart="drag(event)">
+            <aside style="border: 2px solid ;" class="aside">Tasca 3
+              <button type="button" class="collapsible"></button>
+              <div class="content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                  et
+                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip ex
+                  ea commodo consequat.</p>
+              </div>
+            </aside>
+          </div>
+
+
+        </aside>
+        <!--Aqui comença la taula InProgress-->
+        <aside id="inProgres" style="border: 2px solid; max-width: 33%;" class="aside1" ondrop="drop(event)" 
+        ondragover="allowDrop(event)">In Progress
+          
+        <!--Aqui comença una tasca-->
+          <div id="tasca2" class="flex-container" draggable="true" ondragstart="drag(event)">
+            <aside style="border: 2px solid ; " class="aside">Tasca 2
+              <button type="button" class="collapsible"></button>
+              <div class="content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                  et
+                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip ex
+                  ea commodo consequat.</p>
+              </div>
+            </aside>
+
+          </div>
+
+        </aside>
+        <!--Aqui comença la taula Done-->
+        <aside id="done" style="border: 2px solid ;max-width: 33%;" class="aside1" 
+          ondrop="drop(event)" ondragover="allowDrop(event)">Done
+
+          <!--Aqui comença una tasca-->
+          <div id="tasca1" class="flex-container" draggable="true" ondragstart="drag(event)">
+            <aside style="border: 2px solid ; " class="aside">Tasca 1
+              <button type="button" class="collapsible"></button>
+              <div class="content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                  et
+                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip ex
+                  ea commodo consequat.</p>
+              </div>
+            </aside>
+          </div>
+
+          <!--Aqui comença una tasca-->
+          <div id="tasca4" class="flex-container" draggable="true" ondragstart="drag(event)">
+            <aside style="border: 2px solid ; " class="aside">Tasca 4
+              <button type="button" class="collapsible"></button>
+              <div class="content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                  et
+                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip ex
+                  ea commodo consequat.</p>
+              </div>
+            </aside>
+          </div>
+
+
+
+        </aside>
+
+      </div>
+
+    </article>
+    <footer class="footer" >Footer</footer>
+  </div>
+
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="sidebars.js"></script>
+
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+
+
+
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+
+    function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("text");
+      ev.target.appendChild(document.getElementById(data));
+    }
+  </script>
+
+
+
+</body>
+
+</html>

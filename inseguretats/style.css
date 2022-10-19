@@ -1,0 +1,112 @@
+.solucio{
+	color: green
+}
+
+.inseguretat{
+	color: crimson
+}
+
+.boto{
+border: rgb(255, 255, 255);
+font-size: 20px;
+}
+
+.dreta{
+	float: right;
+}
+
+.esquerra{
+	float: left;
+}
+
+.centre{
+	margin: 0 auto;
+}
+
+#container0{
+	background-color: rgb(226, 182, 86);
+	width: 900px;
+	height: 500px;
+	margin: auto;
+	padding: 20px 20px 20px 20px;
+}
+
+
+#container1{
+	background-color: rgb(255, 255, 255); 
+	color: rgb(0, 0, 0);
+	font-size: 25px;
+	width: 800px; 
+	height: 350px; 
+	margin: auto;
+	margin-bottom: 20px; 
+	text-align: center;
+	padding: 30px 10px 10px 10px;
+}	
+
+#textcuadro{
+	padding: top 100px;
+	color:rgb(255, 255, 255);
+}
+
+
+
+/* REFERENCIA DUN TREBALL DE FA UNS ANYS
+
+
+
+.fakeimg {
+    height: 200px;
+    background: #aaa;
+  }
+	  
+	.titol{
+		font-size:100px;
+		color:#FFFFFF;
+	  }
+	.subtitol{
+		font-size:20px;
+		color:#FFFFFF;
+	  }
+	.banner{
+	padding-top:100px;
+	background-color:black;
+	text-align:center;
+	  }
+	.imatgebanner{
+	width:25%;
+}
+	.losmasvistos{
+	width:350px;
+	height:300px;
+}
+
+	.interesantes{
+	text-align:center;	
+			
+}
+	  
+	#jumbo{
+background-color:#000000;		
+}
+
+	#cejota{
+	height:400px;
+	width:450px;
+	margin-bottom:50px;
+	margin-top:50px;
+		
+}	
+	.encuadre{
+		
+		text-align:center;
+}
+
+
+	.imatge_pato{
+	width:450px;
+	height:400px;
+	margin-top:50px;
+	margin-bottom:100px;
+}
+*/
