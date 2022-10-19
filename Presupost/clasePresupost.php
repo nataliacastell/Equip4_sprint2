@@ -18,19 +18,19 @@
         /* Getters */
 
         public function getId() {
-            return ->id;
+            return $this->id;
         }
 
         public function getPresupost() {
-            return ->presupost;
+            return $this->presupost;
         }
 
         public function getDescripcio() {
-            return ->descripcio;
+            return $this->descripcio;
         }
 
         public function getTasca() {
-            return -> id_tasca;
+            return $this-> id_tasca;
         }
 
         /* Setters */
@@ -74,10 +74,3 @@
     
     
     }
-
-
-
-
-
-
-?>

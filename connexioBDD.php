@@ -5,6 +5,6 @@ $db="prymeralia";
 $user="security";
 $password="security";
 
-$conn = mysql_connect($db_host,$db,$user,$password);
+$conn = mysqli_connect($db_host,$db,$user,$password);
 
 ?>

@@ -3,13 +3,13 @@ include 'connexioBDD.php';
 
 
 class Tasca {
-    private $id
-    private $Nom
-    private $descripcio
-    private $Participant
-    private $Estat
+    private $id;
+    private $Nom;
+    private $descripcio;
+    private $Participant;
+    private $Estat;
 
-    public function __construct($id, $Nom, $Participant, $Estat) {
+    public function __construct($id, $Nom, $descripcio, $Participant, $Estat) {
         $this->id = $id;
         $this->Nom = $Nom;
         $this->descripcio = $descripcio;
@@ -52,19 +52,13 @@ public function setId($id){
         
     }*/
     function eliminarTasca(){
-        delete bbdd
     }
     function modificarTasca(){
-        update bbdd
     }
     function assignarTasca(){
-        update bbdd
     }
     function desassignarasca(){
-        update bbdd
     }
     function modificarEstatTasca(){
-        update bbdd
     }
 }
-?>
