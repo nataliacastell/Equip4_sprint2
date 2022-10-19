@@ -35,9 +35,7 @@
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">€</span>
                                     <input type="text" class="form-control" name="preg1" placeholder="Cost" required>
-                                    <div class="invalid-feedback">
-                                        Ingresa un presupost válid, en cas contrari posa un 0.
-                                    </div>
+                                    
                                 </div>
                             </div>
 
@@ -49,9 +47,7 @@
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">€</span>
                                     <input type="text" class="form-control" name="preg2" placeholder="Cost" required>
-                                    <div class="invalid-feedback">
-                                        Ingresa un presupost válid, en cas contrari posa un 0.
-                                    </div>
+                                    
                                 </div>
                             </div>
 
@@ -63,21 +59,11 @@
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">€</span>
                                     <input type="text" class="form-control" name="preg3" placeholder="Cost" required>
-                                    <div class="invalid-feedback">
-                                        Ingresa un presupost válid, en cas contrari posa un 0.
-                                    </div>
+                                    
                                 </div>
                             </div>
 
-                            <?php
-                            $presupost1 = $_POST['preg1'];
-                            $presupost2 = $_POST['preg2'];
-                            $presupost3 = $_POST['preg3'];
                             
-                            $total_presupost = $presupost1 + $presupost2 + $presupost3;
-
-                            echo "<p> Total Presupost: ".$total_presupost. "</p>"
-                            ?>
                             <hr class="my-4">
 
                             <button class="w-100 btn btn-primary btn-lg" type="submit">Enviar Formulari</button>
