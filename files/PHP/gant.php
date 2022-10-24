@@ -151,7 +151,7 @@ class Gant
      *
      * @return void
      */
-    private function desactivarTasca()
+    private function desactivarGant()
     {
     }
 }
