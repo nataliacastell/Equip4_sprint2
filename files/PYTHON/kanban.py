@@ -1,4 +1,5 @@
 import json
+from files.PYTHON.funciones import actualizarDatos
 import funciones
 
 class recomanacio:
@@ -12,7 +13,12 @@ class recomanacio:
         return resultat
     def actualitzaRecomanacio(id,descripcio, estat):
         query = ("UPDATE Recomanacio SET Id= %s, Recomanacions= %s, Resposta= %s "(id,descripcio,estat))
-        resultat = 
+        resultat = actualizarDatos(query)
+        return resultat
+    def inserirRecomanacio(id,descripcio, estat):
+        query = ("INSERT INTO Recomanacio VALUES Id= %s, Recomanacions= %s, Resposta= %s "(id,descripcio,estat))
+        resultat = actualizarDatos(query)
+        return resultat
 class tasca(recomanacio):
     def __init__(self, id, nom, assignament, recomanacions):
         self.id = id
