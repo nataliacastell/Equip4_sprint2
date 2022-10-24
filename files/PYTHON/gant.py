@@ -1,5 +1,6 @@
+import funciones
 class Gant:
-    def __init__(self, idGant, idTasca, descripcio, idUsuari):
+    def __init__(self, id, inici, fi, idTasca):
         """ constructor de clase
 
         Args:
@@ -8,42 +9,31 @@ class Gant:
             descripcio (string): descripción del gant
             idUsuari (int): id de usuario
         """
-        self.__idGant = idGant
-        self.__idTasca = idTasca
-        self.__descripcio = descripcio
-        self.__idUsuari = idUsuari
+        self.id = id
+        self.inici = inici
+        self.fi = fi
+        self.idTasca = idTasca
 
-    def assignarTasca(self):
-        """ futura función que asignará tareas
-        """
-        pass
-
-    def assignarUsuari(self):
-        """ futura funcion que asignará usuarios
-        """
-        pass
-
-    def crearTasca(self):
-        """ futura función que creará tareas
-        """
-        pass
-
-    def establirDurada(self):
-        """ futura función que establecerá la duración de la tarea
-        """
-        pass
-
-    def eliminarTasca(self):
-        """ futura función para eliminar tareas
-        """
-        pass
-
-    def modificarDurada(self):
-        """ futura función para modificar la duración de una tarea
-        """
-        pass
-
-    def desactivarGant(self):
-        """ futura función para desactivar gant
-        """
-        pass
+     # Select         
+    def selectKanban(id):
+        query = ("SELECT * FROM Kanban WHERE id.Kanban = %s", (id))
+        resultat = funciones.consultaDatos(query)
+        return resultat
+    
+    # Update
+    def actualitzaRecomanacio(id, inici, fi, idTasca):
+        query = ("UPDATE Kanban SET Id= %s, inici= %s, fi= %s, idTasca= %s"(id, inici, fi, idTasca))
+        resultat = funciones.actualizarDatos(query)
+        return resultat
+    
+    # Insert
+    def inserirRecomanacio(id, inici, fi, idTasca):
+        query = ("INSERT INTO Kanban VALUES (%s,%s,%s,%s) "(id, inici, fi, idTasca))
+        resultat = funciones.insertarDatos(query)
+        return resultat
+    
+    # Delete
+    def eliminaRecomanacio(id):
+        query = ("DELETE FROM Kanban WHERE id.Kanban = %s", (id))
+        resultat = funciones.eliminarDatos(query)
+        return resultat
