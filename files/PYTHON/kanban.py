@@ -20,9 +20,9 @@ class Kanban:
         return resultat
     def inserirRecomanacio(id, idTasca, nomTasca, descripcioTasca,estat, assignament):
         query = ("INSERT INTO Kanban VALUES (%s,%s,%s,%s,%s,%s) "(id, idTasca, nomTasca, descripcioTasca,estat, assignament))
-        resultat = actualizarDatos(query)
+        resultat = funciones.insertarDatos(query)
         return resultat
     def eliminaRecomanacio(id):
         query = ("DELETE FROM Kanban WHERE id.Kanban = %s", (id))
-        resultat = actualizarDatos(query)
+        resultat = funciones.eliminarDatos(query)
         return resultat
