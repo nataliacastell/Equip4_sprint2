@@ -16,7 +16,11 @@ class recomanacio:
         resultat = actualizarDatos(query)
         return resultat
     def inserirRecomanacio(id,descripcio, estat):
-        query = ("INSERT INTO Recomanacio VALUES Id= %s, Recomanacions= %s, Resposta= %s "(id,descripcio,estat))
+        query = ("INSERT INTO Recomanacio VALUES (%s,%s,%s) "(id,descripcio,estat))
+        resultat = actualizarDatos(query)
+        return resultat
+    def eliminaRecomanacio(id):
+        query = ("DELETE FROM Recomanacio WHERE id.Recomanacio = %s", (id))
         resultat = actualizarDatos(query)
         return resultat
 class tasca(recomanacio):
