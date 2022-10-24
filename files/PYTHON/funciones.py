@@ -1,6 +1,5 @@
 from pickle import FALSE, TRUE
 import MySQLdb
-
 # Datos de la BBDD:
 DB_HOST = 'localhost' 
 DB_USER = 'shell' 
