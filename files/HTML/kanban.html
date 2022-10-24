@@ -1,172 +1,220 @@
 <!DOCTYPE html>
-<html lang="en">
- 
+<html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Over Securtity</title>
+  <title>Pymeshield Kanban</title>
   <link rel="stylesheet" href="../CSS/kanban.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-  
+  <script src="../JavaScript/bootstrap.bundle.min.js"></script>
+  <script src="../JavaScript/kanban.js"></script>
+  <link rel="stylesheet" href="../CSS/bootstrap.min.css">
+  <link rel="stylesheet" href="../CSS/main.css">
+  <link href="../CSS/fontawesome.min.css" rel="stylesheet">
+  <link href="../CSS/brands.min.css" rel="stylesheet">
+  <link href="../CSS/solid.min.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
 </head>
 
-<body>
-
-  <div class="flex-container">
-    <header class="header">
-
-      <h1 type="button" style="text-align: left;">LOGO 
-        
-        <div style="float: right;" class="dropdown">
-          <button class='fa fa-user'></button>
-          <div class="dropdown-content">
-          <a >Perfil</a>
-          <a >Algo</a>
-          <a >Tacar sessio</a>
-          </div>
+<body class="d-flex flex-column min-vh-100">
+  <header class="sticky-top">
+    <div class="navbar navbar-expand-sm p-0" id="header-logo">
+      <div class="container-fluid d-flex flex-row justify-content-between navbar-nav ">
+        <div class="p-2" id="logo">
+          <li class="nav-item"><a class="nav-link" href="#"><img src="../Img/logo_pymeshield.png" alt="Logo"
+                class="d-inline-block align-text-middle">
+              pymeshield</a></li>
         </div>
 
-      </h1>
-      <div class="topnav">
-        <a class="active" href="#home">Kanban</a>
-        <a href="#news">Informe</a>
-        <a href="#contact">Qüestionari</a>
-        <a href="#about">QR</a>
+        <!--Ruptura del responsive en 576px a 575px-->
+        <div class="p-2">
+          <div class="container" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2" style="--bs-scroll-height: 100px;">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="menu-dropdown" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <i class="fa-solid fa-user"></i>
+                </a>
+                <ul class="dropdown-menu" id="menu-user">
+                  <li><a class="dropdown-item" href="#"><i class="fa-solid fa-address-card"></i>Editar
+                      Perfil</a></li>
+                  <li><a class="dropdown-item" href="#"><i class="fa-solid fa-language"></i>Idioma</a>
+                  </li>
+                  <li><a class="dropdown-item" href="#"><i class="fa-solid fa-palette"></i>Tema</a>
+                  </li>
+                  <li><a class="dropdown-item" href="#"><i class="fa-solid fa-right-from-bracket"></i>Cerrar Sesión</a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#"><i class="fa-solid fa-shield-halved"></i>Admin</a></li>
+                </ul>
+              </li>
+          </div>
+        </div>
       </div>
-      
-      
+    </div>
+    <!--Header Logo-->
 
 
-    </header>
-    <article class="main">
+    <nav class="navbar navbar-expand-lg p-0" id="main-navbar">
+      <div class="container-fluid">
+        <span class="p-2">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button></span>
+        <div class="collapse navbar-collapse p-0" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-house"></i>Kanban</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i
+                  class="fa-solid fa-square-poll-vertical"></i>Informe</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#"><i
+                  class="fa-solid fa-clipboard-question"></i>Cuestionario</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-qrcode"></i>QR</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    <!--Header Menu-->
 
-
-      <div class="flex-container" style="height: 100%; margin-left: 1%;margin-bottom: 30%;">
-        <!--Aqui comença la taula ToDo-->
-        <aside id="toDo" style="border: 2px solid ; max-width: 33%;" class="aside1" ondrop="drop(event)"
-          ondragover="allowDrop(event)">To Do
-            <!--Aqui comença una tasca-->
-          <div id="tasca3" class="flex-container" draggable="true" ondragstart="drag(event)">
-            <aside style="border: 2px solid ;" class="aside">Tasca 3
-              <button type="button" class="collapsible"></button>
-              <div class="content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                  et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                  aliquip ex
-                  ea commodo consequat.</p>
-              </div>
-            </aside>
+  </header>
+  <main>
+  <div class="flex-container">
+    <!--Aqui comença la taula ToDo-->
+    <aside id="toDo" class="aside1" ondrop="drop(event)"
+      ondragover="allowDrop(event)">To-Do
+      <!--Aqui comença una tasca-->
+      <div id="tasca3" class="flex-container" draggable="true" ondragstart="drag(event)">
+        <aside class="aside">Tasca 3
+          <button type="button" class="collapsible"><i class="fa-solid fa-angle-down"></i></button>
+          <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+              et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+              aliquip ex
+              ea commodo consequat.</p>
           </div>
-
-
         </aside>
-        <!--Aqui comença la taula InProgress-->
-        <aside id="inProgres" style="border: 2px solid; max-width: 33%;" class="aside1" ondrop="drop(event)" 
-        ondragover="allowDrop(event)">In Progress
-          
-        <!--Aqui comença una tasca-->
-          <div id="tasca2" class="flex-container" draggable="true" ondragstart="drag(event)">
-            <aside style="border: 2px solid ; " class="aside">Tasca 2
-              <button type="button" class="collapsible"></button>
-              <div class="content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                  et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                  aliquip ex
-                  ea commodo consequat.</p>
-              </div>
-            </aside>
-
-          </div>
-
-        </aside>
-        <!--Aqui comença la taula Done-->
-        <aside id="done" style="border: 2px solid ;max-width: 33%;" class="aside1" 
-          ondrop="drop(event)" ondragover="allowDrop(event)">Done
-
-          <!--Aqui comença una tasca-->
-          <div id="tasca1" class="flex-container" draggable="true" ondragstart="drag(event)">
-            <aside style="border: 2px solid ; " class="aside">Tasca 1
-              <button type="button" class="collapsible"></button>
-              <div class="content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                  et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                  aliquip ex
-                  ea commodo consequat.</p>
-              </div>
-            </aside>
-          </div>
-
-          <!--Aqui comença una tasca-->
-          <div id="tasca4" class="flex-container" draggable="true" ondragstart="drag(event)">
-            <aside style="border: 2px solid ; " class="aside">Tasca 4
-              <button type="button" class="collapsible"></button>
-              <div class="content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                  et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                  aliquip ex
-                  ea commodo consequat.</p>
-              </div>
-            </aside>
-          </div>
-
-
-
-        </aside>
-
       </div>
 
-    </article>
-    <footer class="footer" >Footer</footer>
+
+    </aside>
+    <!--Aqui comença la taula InProgress-->
+    <aside id="inProgres" class="aside1" ondrop="drop(event)"
+      ondragover="allowDrop(event)">In Progress
+
+      <!--Aqui comença una tasca-->
+      <div id="tasca2" class="flex-container" draggable="true" ondragstart="drag(event)">
+        <aside class="aside">Tasca 2
+          <button type="button" class="collapsible"><i class="fa-solid fa-angle-down"></i></button>
+          <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+              et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+              aliquip ex
+              ea commodo consequat.</p>
+          </div>
+        </aside>
+
+      </div>
+
+    </aside>
+    <!--Aqui comença la taula Done-->
+    <aside id="done" class="aside1" ondrop="drop(event)"
+      ondragover="allowDrop(event)"><div class="top-aside"></div>Done
+
+      <!--Aqui comença una tasca-->
+      <div id="tasca1" class="flex-container" draggable="true" ondragstart="drag(event)">
+        <aside class="aside">Tasca 1
+          <button type="button" class="collapsible"><i class="fa-solid fa-angle-down"></i></button>
+          <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+              et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+              aliquip ex
+              ea commodo consequat.</p>
+          </div>
+        </aside>
+      </div>
+
+      <!--Aqui comença una tasca-->
+      <div id="tasca4" class="flex-container" draggable="true" ondragstart="drag(event)">
+        <aside class="aside">Tasca 4
+          <button type="button" class="collapsible"><i class="fa-solid fa-angle-down"></i></button>
+          <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+              et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+              aliquip ex
+              ea commodo consequat.</p>
+          </div>
+        </aside>
+      </div>
+
+
+
+    </aside>
+
   </div>
-
-  <script src="../JavaScript/bootstrap.bundle.min.js"></script>
-
-  <script src="sidebars.js"></script>
-
-  <script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-          content.style.display = "none";
-        } else {
-          content.style.display = "block";
-        }
-      });
-    }
-
-
-
-    function allowDrop(ev) {
-      ev.preventDefault();
-    }
-
-    function drag(ev) {
-      ev.dataTransfer.setData("text", ev.target.id);
-    }
-
-    function drop(ev) {
-      ev.preventDefault();
-      var data = ev.dataTransfer.getData("text");
-      ev.target.appendChild(document.getElementById(data));
-    }
-  </script>
-
-
-
+  </div>
+</main>
+  <footer class="bg-black text-center text-lg-center mt-auto">
+    <div class="text-center p-3">
+      <div class="fluid-container">
+        <div class="row">
+          <div id="logo-footer" class="col-6 col-md-3">
+            <a class="text-light" href="#"><img src="../Img/logo_pymeshield_black.png" alt="Logo" width="50px"
+                style="margin-right: 5px;" class="d-inline-block align-text-middle"><i
+                class="fa-solid fa-copyright"></i>pymeshield
+              by Pymeralia</a>
+          </div>
+          <div class="col-6 col-md-3">
+            <h6 id="title-footer">Acerca de Pymeralia</h6>
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="#" class="text-light">Política de privacidad</a>
+              </li>
+              <li>
+                <a href="#" class="text-light">Política de cookies</a>
+              </li>
+              <li>
+                <a href="#" class="text-light">Aviso legal</a>
+              </li>
+              <li>
+                <a href="#" class="text-light">Ley de protección</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-3">
+            <h6 id="title-footer">Contacto</h6>
+            <p><i class="fa-solid fa-phone"></i>682849274 <br> <i class="fa-solid fa-envelope"></i>support@pymeralia.com
+            </p>
+          </div>
+          <div class="col-6 col-md-3">
+            <h6 id="title-footer">RRSS</h6>
+            <ul class="list-unstyled mb-0" id="footer-rrss">
+              <li>
+                <a class="text-light" href="#"><i class="fa-brands fa-tiktok"></i></a>
+                <a class="text-light" href="#"><i class="fa-brands fa-twitter"></i></a>
+              </li>
+              </li>
+              <li>
+                <a class="text-light" href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a class="text-light" href="#"><i class="fa-brands fa-facebook"></i></a>
+              </li>
+              <li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../JavaScript/kanban.js"></script>
 </body>
 
 </html>

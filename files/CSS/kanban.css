@@ -4,38 +4,14 @@
   --color-gris: #DCDCDC;
 }
 
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
- 
-.topnav {
-  overflow: hidden;
-  background-color: var(--color-general);
-  
+main {
+  padding: 25px 5px;
 }
 
-.topnav a {
-  float: left;
-  color: var(--color-gris);
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  width: 25%;
+aside {
+  padding: 25px;
 }
 
-.topnav a:hover {
-  background-color: var(--color-gris);
-  color: var(--color-negre);
-  
-}
-
-.topnav a.active {
-  background-color: var(--color-general);
-  color: var(--color-negre);
-}
 table, th, td {
   border: 1px solid ;
   border-collapse: collapse;
@@ -52,14 +28,19 @@ table, th, td {
   flex-flow: row wrap;
   font-weight: bold;
   text-align: center;
+  padding: 5px;
   
 }
 .aside {
   border: 2px solid ;
+  border-radius: 5px;
 }
 .aside1{
-  border: 2px solid; 
+  border: 1px solid; 
   max-width: 33%;
+}
+.top-aside {
+  background-color: grey;
 }
 .flex-container>* {
   padding: 10px;
@@ -107,9 +88,8 @@ table, th, td {
 .collapsible {
   background-color: var(--color-general);
   color: white;
-  cursor: pointer;
-  padding: 10px;
-  width: 10%;
+  width: 25px;
+  border-radius: 25px;
   border: none;
   text-align: left;
   outline: none;
@@ -125,22 +105,6 @@ table, th, td {
   display: none;
   overflow: hidden;
   background-color: white;
-}
-
-.collapsible2 {
-  background-color: var(--color-gris);
-  color: white;
-  cursor: pointer;
-  padding: 10px;
-  width: 52px;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-}
-.active, .collapsible2:hover {
-  background-color: var(--color-gris);
- 
 }
 
 .bd-placeholder-img {
@@ -186,35 +150,4 @@ table, th, td {
   text-align: center;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
-}
-/*estils del menú desplegable de dalt a la dreta*/
-.dropdown {
-  float: right;
-  display: inline-block;
-  position: relative;
-  
-}
-.dropdown-content {
-  display: none;
-  position: absolute;
-  width: 200px;
-  overflow: auto;
-  box-shadow: 0px 10px 10px 0px var(--color-negre);
-  margin-left: -157px;
-  background-color: var(--color-gris);
-  font-size: 20px;
-
-}
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-.dropdown-content a {
-  display: block;
-  color: var(--color-negre);
-  padding: 5px;
-  text-decoration: none;
-}
-.dropdown-content a:hover {
-  color: white;
-  background-color: var(--color-general);
 }
