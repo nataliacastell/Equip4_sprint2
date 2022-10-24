@@ -1,14 +1,12 @@
 import funciones                                    # importem arxiu funciones
 
 class Kanban:
-    def __init__(self,id, idTasca, nomTasca, descripcioTasca,estat, assignament):
+    def __init__(self,id, durada, estat, idTasca):
         self.id = id                                # ID del kanban
-        self.idTasca = idTasca                      # ID tasca aceptada
-        self.nomTasca = nomTasca                    # Nom tasca
-        self.descripcioTasca = descripcioTasca      # Descripcio tasca
-        self.estat = estat                          # Estat tasca 
-        self.assignament = assignament              # Assignament tasca
-
+        self.durada = durada                        # durada
+        self.estat = estat                          # estat --> 0= to do, 1= in progress, 2= done
+        self.idTasca = idTasca                      # id tasca
+        
     # Select         
     def selectKanban(id):
         query = ("SELECT * FROM Kanban WHERE id.Kanban = %s", (id))
@@ -16,14 +14,14 @@ class Kanban:
         return resultat
     
     # Update
-    def actualitzaRecomanacio(id, idTasca, nomTasca, descripcioTasca,estat, assignament):
-        query = ("UPDATE Kanban SET Id= %s, IdTasca= %s, nomTasca= %s, descripcioTasca= %s, estat= %s, assignment= %s "(id, idTasca, nomTasca, descripcioTasca,estat, assignament))
-        resultat = actualizarDatos(query)
+    def actualitzaRecomanacio(id, durada, estat, idTasca):
+        query = ("UPDATE Kanban SET Id= %s, durada= %s, estat= %s, idTasca= %s"(id, durada, estat, idTasca))
+        resultat = funciones.actualizarDatos(query)
         return resultat
     
     # Insert
-    def inserirRecomanacio(id, idTasca, nomTasca, descripcioTasca,estat, assignament):
-        query = ("INSERT INTO Kanban VALUES (%s,%s,%s,%s,%s,%s) "(id, idTasca, nomTasca, descripcioTasca,estat, assignament))
+    def inserirRecomanacio(id, durada, estat, idTasca):
+        query = ("INSERT INTO Kanban VALUES (%s,%s,%s,%s) "(id, durada, estat, idTasca))
         resultat = funciones.insertarDatos(query)
         return resultat
     
