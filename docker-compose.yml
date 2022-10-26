@@ -10,7 +10,11 @@ services :
         links:
             - 'mariadb:db'
 
-
+    nodejs:
+        image: node
+        ports: 
+            - 8080:8083
+        tty: true
 
     mariadb :
         image : mariadb:10.6
@@ -33,12 +37,3 @@ services :
         ports:
             - 8081:80
             
-    
-    
-    myapp:
-        image: bitnami/node
-        command: node index.js
-        networks:
-            - app-tier
-        volumes:
-            - .:/app
