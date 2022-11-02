@@ -1,5 +1,5 @@
 <?php
-require_once("../PHP/kanban.php");
+require_once("../PHP/Tasca.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -77,60 +77,32 @@ require_once("../PHP/kanban.php");
     <!--Header Menu-->
   </header>
   <main>
-    <div class="container-fluid text-center">
-      <div class="row">
-        <table class="table-responsive align-top">
-          <thead>
-            <tr>
-              <th scope="col" ondrop="drop(event)" ondragover="allowDrop(event)">To-Do</th>
-              <th scope="col" ondrop="drop(event)" ondragover="allowDrop(event)">In Progress</th>
-              <th scope="col" ondrop="drop(event)" ondragover="allowDrop(event)">Done</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">
-                <div id="tasca3" class="flex-container p-2" draggable="true" ondragstart="drag(event)">
-                  <div class="aside">Tasca 3
-                    <?php  
-                    /*$tasca = new Tasca;
-                    $tasca->listarTascas($conn, 'To-Do');*/
-                    if ($conn->connect_error) {
-                      die("Connection failed: " . $conn->connect_error);
-                    }
-                    echo "Connected successfully";
-                    ?>
-                    ?>
-                  </div>
-                </div>
-              </th>
-              <td>
-                <div id="tasca2" class="flex-container p-2" draggable="true" ondragstart="drag(event)">
-                  <div class="aside">Tasca 2
-                  </div>
-                </div>
-              </td>
-              <td>
-                <div id="tasca1" class="flex-container p-2" draggable="true" ondragstart="drag(event)">
-                  <div class="aside">Tasca 1
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div id="tasca4" class="flex-container p-2" draggable="true" ondragstart="drag(event)">
-                  <div class="aside">Tasca 4
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-            </tr>
-          </tbody>
-        </table>
+    <div class="container text-center">
+      <div class="row align-items-start">
+        <div class="col-4" ondrop="drop(event)" ondragover="allowDrop(event)">
+          To-Do
+          <div>
+            <?php
+            $tasca = new Tasca;
+            $tasca->listarTascas($conn, 'ToDo');
+            ?>
+          </div>
+        </div>
+        <div class="col-4" ondrop="drop(event)" ondragover="allowDrop(event)">
+          In Progress
+          <?php
+          $tasca = new Tasca;
+          $tasca->listarTascas($conn, 'InProgress');
+          ?>
+        </div>
+        <div class="col-4" ondrop="drop(event)" ondragover="allowDrop(event)">
+          Done
+          <?php
+          $tasca = new Tasca;
+          $tasca->listarTascas($conn, 'Done');
+          ?>
+        </div>
       </div>
-    </div>
     </div>
   </main>
   <footer class="bg-black text-center text-lg-center mt-auto">

@@ -5,6 +5,6 @@ $db="oversegurity";
 $user="root";
 $password="root";
 
-$conn = mysqli_connect($db_host,$db,$user,$password);
+$conn = mysqli_connect($db_host,$user,$password,$db);
 
 ?>
