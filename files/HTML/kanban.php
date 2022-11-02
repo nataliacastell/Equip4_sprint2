@@ -1,3 +1,6 @@
+<?php
+require_once("../PHP/kanban.php");
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -23,8 +26,7 @@
     <div class="navbar navbar-expand-sm p-0" id="header-logo">
       <div class="container-fluid d-flex flex-row justify-content-between navbar-nav ">
         <div class="p-2" id="logo">
-          <li class="nav-item"><a class="nav-link" href="#"><img src="../Img/logo_pymeshield.png" alt="Logo"
-                class="d-inline-block align-text-middle">
+          <li class="nav-item"><a class="nav-link" href="#"><img src="../Img/logo_pymeshield.png" alt="Logo" class="d-inline-block align-text-middle">
               pymeshield</a></li>
         </div>
         <!--Ruptura del responsive en 576px a 575px-->
@@ -32,8 +34,7 @@
           <div class="container" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2" style="--bs-scroll-height: 100px;">
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="menu-dropdown" href="#" role="button" data-bs-toggle="dropdown"
-                  aria-expanded="false">
+                <a class="nav-link dropdown-toggle" id="menu-dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="fa-solid fa-user"></i>
                 </a>
                 <ul class="dropdown-menu" id="menu-user">
@@ -59,18 +60,15 @@
     <nav class="navbar navbar-expand-lg p-0" id="main-navbar">
       <div class="container-fluid">
         <span class="p-2">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button></span>
         <div class="collapse navbar-collapse p-0" id="navbarNav">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-house"></i>Kanban</a></li>
-            <li class="nav-item"><a class="nav-link" href="#"><i
-                  class="fa-solid fa-square-poll-vertical"></i>Informe</a>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-square-poll-vertical"></i>Informe</a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="#"><i
-                  class="fa-solid fa-clipboard-question"></i>Cuestionario</a></li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-clipboard-question"></i>Cuestionario</a></li>
             <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-qrcode"></i>QR</a>
             </li>
           </ul>
@@ -94,6 +92,15 @@
               <th scope="row">
                 <div id="tasca3" class="flex-container p-2" draggable="true" ondragstart="drag(event)">
                   <div class="aside">Tasca 3
+                    <?php  
+                    /*$tasca = new Tasca;
+                    $tasca->listarTascas($conn, 'To-Do');*/
+                    if ($conn->connect_error) {
+                      die("Connection failed: " . $conn->connect_error);
+                    }
+                    echo "Connected successfully";
+                    ?>
+                    ?>
                   </div>
                 </div>
               </th>
@@ -131,9 +138,7 @@
       <div class="fluid-container">
         <div class="row">
           <div id="logo-footer" class="col-6 col-md-3">
-            <a class="text-light" href="#"><img src="../Img/logo_pymeshield_black.png" alt="Logo" width="50px"
-                style="margin-right: 5px;" class="d-inline-block align-text-middle"><i
-                class="fa-solid fa-copyright"></i>pymeshield
+            <a class="text-light" href="#"><img src="../Img/logo_pymeshield_black.png" alt="Logo" width="50px" style="margin-right: 5px;" class="d-inline-block align-text-middle"><i class="fa-solid fa-copyright"></i>pymeshield
               by Pymeralia</a>
           </div>
           <div class="col-6 col-md-3">
