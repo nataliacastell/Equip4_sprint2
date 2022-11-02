@@ -16,7 +16,6 @@
   <link href="../CSS/brands.min.css" rel="stylesheet">
   <link href="../CSS/solid.min.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -28,7 +27,6 @@
                 class="d-inline-block align-text-middle">
               pymeshield</a></li>
         </div>
-
         <!--Ruptura del responsive en 576px a 575px-->
         <div class="p-2">
           <div class="container" id="navbarScroll">
@@ -58,8 +56,6 @@
       </div>
     </div>
     <!--Header Logo-->
-
-
     <nav class="navbar navbar-expand-lg p-0" id="main-navbar">
       <div class="container-fluid">
         <span class="p-2">
@@ -81,88 +77,55 @@
         </div>
     </nav>
     <!--Header Menu-->
-
   </header>
   <main>
-  <div class="flex-container">
-    <!--Aqui comença la taula ToDo-->
-    <aside id="toDo" class="aside1" ondrop="drop(event)"
-      ondragover="allowDrop(event)">To-Do
-      <!--Aqui comença una tasca-->
-      <div id="tasca3" class="flex-container" draggable="true" ondragstart="drag(event)">
-        <aside class="aside">Tasca 3
-          <button type="button" class="collapsible"><i class="fa-solid fa-angle-down"></i></button>
-          <div class="content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-              et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex
-              ea commodo consequat.</p>
-          </div>
-        </aside>
+    <div class="container-fluid text-center">
+      <div class="row">
+        <table class="table-responsive align-top">
+          <thead>
+            <tr>
+              <th scope="col" ondrop="drop(event)" ondragover="allowDrop(event)">To-Do</th>
+              <th scope="col" ondrop="drop(event)" ondragover="allowDrop(event)">In Progress</th>
+              <th scope="col" ondrop="drop(event)" ondragover="allowDrop(event)">Done</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">
+                <div id="tasca3" class="flex-container p-2" draggable="true" ondragstart="drag(event)">
+                  <div class="aside">Tasca 3
+                  </div>
+                </div>
+              </th>
+              <td>
+                <div id="tasca2" class="flex-container p-2" draggable="true" ondragstart="drag(event)">
+                  <div class="aside">Tasca 2
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div id="tasca1" class="flex-container p-2" draggable="true" ondragstart="drag(event)">
+                  <div class="aside">Tasca 1
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div id="tasca4" class="flex-container p-2" draggable="true" ondragstart="drag(event)">
+                  <div class="aside">Tasca 4
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+            </tr>
+          </tbody>
+        </table>
       </div>
-
-
-    </aside>
-    <!--Aqui comença la taula InProgress-->
-    <aside id="inProgres" class="aside1" ondrop="drop(event)"
-      ondragover="allowDrop(event)">In Progress
-
-      <!--Aqui comença una tasca-->
-      <div id="tasca2" class="flex-container" draggable="true" ondragstart="drag(event)">
-        <aside class="aside">Tasca 2
-          <button type="button" class="collapsible"><i class="fa-solid fa-angle-down"></i></button>
-          <div class="content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-              et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex
-              ea commodo consequat.</p>
-          </div>
-        </aside>
-
-      </div>
-
-    </aside>
-    <!--Aqui comença la taula Done-->
-    <aside id="done" class="aside1" ondrop="drop(event)"
-      ondragover="allowDrop(event)"><div class="top-aside"></div>Done
-
-      <!--Aqui comença una tasca-->
-      <div id="tasca1" class="flex-container" draggable="true" ondragstart="drag(event)">
-        <aside class="aside">Tasca 1
-          <button type="button" class="collapsible"><i class="fa-solid fa-angle-down"></i></button>
-          <div class="content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-              et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex
-              ea commodo consequat.</p>
-          </div>
-        </aside>
-      </div>
-
-      <!--Aqui comença una tasca-->
-      <div id="tasca4" class="flex-container" draggable="true" ondragstart="drag(event)">
-        <aside class="aside">Tasca 4
-          <button type="button" class="collapsible"><i class="fa-solid fa-angle-down"></i></button>
-          <div class="content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-              et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex
-              ea commodo consequat.</p>
-          </div>
-        </aside>
-      </div>
-
-
-
-    </aside>
-
-  </div>
-  </div>
-</main>
+    </div>
+    </div>
+  </main>
   <footer class="bg-black text-center text-lg-center mt-auto">
     <div class="text-center p-3">
       <div class="fluid-container">

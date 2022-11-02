@@ -1,4 +1,5 @@
 <?php
+require_once ("connexioBDD.php");
     class Kanban{
         public $id;
         public $idTasca;
