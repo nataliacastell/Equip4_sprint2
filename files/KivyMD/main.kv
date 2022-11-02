@@ -1,0 +1,60 @@
+#: include dashboard.kv
+#: include firstscreen.kv
+
+<NavigationLayout>:
+    id: nav_layout
+
+    ScreenManager:
+
+        Screen:
+        
+            BoxLayout:
+                orientation: 'vertical'
+
+                MDToolbar:
+                    title: app.title
+                    elevation: 18
+                    
+                ScreenManager:
+                    id: screen_manager
+                    DashBoard:
+                        id: dashboard
+                        name: "dashboard"
+                    FirstScreen:
+                        id: first_screen
+                        name: "first_screen"
+
+    MDNavigationDrawer:
+        id: nav_drawer
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: "8dp"
+            spacing: "8dp"
+
+
+            Image: 
+                size_hint: None, None
+                size: "200dp, 200dp"
+                source: "../img/PymeShield.png"
+
+            ScrollView:
+
+                MDList:
+                
+                    OneLineIconItem:
+                        text: "DashBoard"
+                        on_release:
+                            screen_manager.current = "dashboard"
+                            nav_drawer.set_state()
+                        IconLeftWidget: 
+                            icon: "view_dashboard"
+
+                    OneLineIconItem:
+                        text: "Primera Pagina"
+                        on_release:
+                            screen_manager.current = "first_screen"
+                            nav_drawer.set_state()
+                        IconLeftWidget: 
+                            icon: "cart"
+
