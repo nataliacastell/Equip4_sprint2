@@ -1,17 +1,16 @@
+from turtle import color
 from kivy.lang import Builder
 from kivymd.app import MDApp
 from kivy.uix.screenmanager import Screen
+from kivymd.uix.boxlayout import MDBoxLayout
 
-class DashBoard(Screen):
-    pass
+class ContentNavigationDrawer(MDBoxLayout):
+    pass    
 
-class FirstScreen(Screen):
-    pass
-
-class MyApp (MDApp):
+class MyApp (MDApp):    
     def build(self):
         self.title = "PymeShield"
-        self.theme_cls.primary_palette = "Green"
-        return Builder.load_file("main.kv")
+        return Builder.load_file("main2.kv")
+        
 
 MyApp().run()

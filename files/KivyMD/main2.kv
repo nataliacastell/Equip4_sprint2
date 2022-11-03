@@ -1,0 +1,60 @@
+MDScreen:
+
+    MDBottomNavigation:
+        selected_color_background: "orange"
+        text_color_active: "lightgrey"
+
+        MDBottomNavigationItem:
+            name: 'screen 1'
+            text: 'Kanban'
+            icon: 'clipboard-check-multiple'
+
+            MDLabel:
+                text: 'Kanban'
+                halign: 'center'
+
+        MDBottomNavigationItem:
+            name: 'screen 2'
+            text: 'Gantt'
+            icon: 'calendar-multiple'
+
+            MDLabel:
+                text: 'Gantt'
+                halign: 'center'
+
+        MDBottomNavigationItem:
+            name: 'screen 3'
+            text: 'Tasca'
+            icon: 'checkbox-marked-circle-plus-outline'
+
+            MDLabel:
+                text: 'Acceptar Tasques'
+                halign: 'center'
+            
+
+#menu desplegable
+    MDNavigationLayout:
+
+        MDScreenManager:
+
+            MDScreen:
+
+                MDTopAppBar:
+                    title: "PymeShield"
+                    elevation: 4
+                    pos_hint: {"top": 1}
+                    md_bg_color: "#ff6720"
+                    specific_text_color: "black"
+                    left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
+                    right_action_items: [["home", lambda x: x]]
+            
+            MDNavigationDrawer:
+                id: nav_drawer
+                radius: (0, 16, 16, 0)
+
+                ContentNavigationDrawer:
+
+
+            
+
+                
