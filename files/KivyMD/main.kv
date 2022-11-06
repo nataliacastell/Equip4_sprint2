@@ -1,60 +1,68 @@
-#: include dashboard.kv
-#: include firstscreen.kv
+<CustomToolbar>:
+    size_hint_y: None
+    height: self.theme_cls.standard_increment
+    padding: "5dp"
+    spacing: "12dp"
 
-<NavigationLayout>:
-    id: nav_layout
+    MDIconButton:
+        id: button_1
+        icon: "menu"
+        pos_hint: {"center_y": .5}
+        on_release: app.menu_1.open()
 
-    MDScreenManager:
+    MDLabel:
+        text: "MDDropdownMenu"
+        pos_hint: {"center_y": .5}
+        size_hint_x: None
+        width: self.texture_size[0]
+        text_size: None, None
+        font_style: 'H6'
 
-        Screen:
-        
-            BoxLayout:
-                orientation: 'vertical'
+    Widget:
 
-                MDToolbar:
-                    title: app.title
-                    elevation: 18
-                    
-                ScreenManager:
-                    id: screen_manager
-                    DashBoard:
-                        id: dashboard
-                        name: "dashboard"
-                    FirstScreen:
-                        id: first_screen
-                        name: "first_screen"
-
-    MDNavigationDrawer:
-        id: nav_drawer
-
-        BoxLayout:
-            orientation: 'vertical'
-            padding: "8dp"
-            spacing: "8dp"
+    MDIconButton:
+        id: button_2
+        icon: "dots-vertical"
+        pos_hint: {"center_y": .5}
+        on_release: app.menu_2.open()
 
 
-            Image: 
-                size_hint: None, None
-                size: "200dp, 200dp"
-                source: "../Img/PymeShield.png"
+Screen:
 
-            ScrollView:
+    CustomToolbar:
+        id: toolbar
+        elevation: 10
+        pos_hint: {"top": 1}
 
-                MDList:
-                
-                    OneLineIconItem:
-                        text: "DashBoard"
-                        on_release:
-                            screen_manager.current = "dashboard"
-                            nav_drawer.set_state()
-                        IconLeftWidget: 
-                            icon: "view_dashboard"
+        MDScreen:
 
-                    OneLineIconItem:
-                        text: "Primera Pagina"
-                        on_release:
-                            screen_manager.current = "first_screen"
-                            nav_drawer.set_state()
-                        IconLeftWidget: 
-                            icon: "cart"
+            MDBottomNavigation:
+                selected_color_background: "orange"
+                text_color_active: "black"
 
+                MDBottomNavigationItem:
+                    name: 'screen 1'
+                    text: 'Kanban'
+                    icon: 'clipboard-check-multiple'
+
+                    MDLabel:
+                        text: 'Kanban'
+                        halign: 'center'
+
+                MDBottomNavigationItem:
+                    name: 'screen 2'
+                    text: 'Gantt'
+                    icon: 'calendar-multiple'
+
+                    MDLabel:
+                        text: 'Gantt'
+                        halign: 'center'
+
+                MDBottomNavigationItem:
+                    name: 'screen 3'
+                    text: 'Tasca'
+                    icon: 'checkbox-marked-circle-plus-outline'
+
+                    MDLabel:
+                        text: 'Acceptar Tasques'
+                        halign: 'center'

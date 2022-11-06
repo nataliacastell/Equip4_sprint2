@@ -2,7 +2,7 @@ MDScreen:
 
     MDBottomNavigation:
         selected_color_background: "orange"
-        text_color_active: "lightgrey"
+        text_color_active: "black"
 
         MDBottomNavigationItem:
             name: 'screen 1'
@@ -45,16 +45,10 @@ MDScreen:
                     pos_hint: {"top": 1}
                     md_bg_color: "#ff6720"
                     specific_text_color: "black"
-                    left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
-                    right_action_items: [["home", lambda x: x]]
-            
-            MDNavigationDrawer:
-                id: nav_drawer
-                radius: (0, 16, 16, 0)
-
-                ContentNavigationDrawer:
+                    left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
 
 
-            
+        MDNavigationDrawer:
+            id: nav_drawer
 
-                
+            ContentNavigationDrawer:
