@@ -1,5 +1,5 @@
 <?php
-require_once("../PHP/Tasca.php");
+require_once("../PHP/kanban.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -9,152 +9,44 @@ require_once("../PHP/Tasca.php");
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pymeshield Kanban</title>
-  <link rel="stylesheet" href="../CSS/kanban.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="../JavaScript/bootstrap.bundle.min.js"></script>
+  <?php require_once("./head.php");?>
   <script src="../JavaScript/kanban.js"></script>
-  <link rel="stylesheet" href="../CSS/bootstrap.min.css">
-  <link rel="stylesheet" href="../CSS/main.css">
-  <link href="../CSS/fontawesome.min.css" rel="stylesheet">
-  <link href="../CSS/brands.min.css" rel="stylesheet">
-  <link href="../CSS/solid.min.css" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
   <header class="sticky-top">
-    <div class="navbar navbar-expand-sm p-0" id="header-logo">
-      <div class="container-fluid d-flex flex-row justify-content-between navbar-nav ">
-        <div class="p-2" id="logo">
-          <li class="nav-item"><a class="nav-link" href="#"><img src="../Img/logo_pymeshield.png" alt="Logo" class="d-inline-block align-text-middle">
-              pymeshield</a></li>
-        </div>
-        <!--Ruptura del responsive en 576px a 575px-->
-        <div class="p-2">
-          <div class="container" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2" style="--bs-scroll-height: 100px;">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="menu-dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="fa-solid fa-user"></i>
-                </a>
-                <ul class="dropdown-menu" id="menu-user">
-                  <li><a class="dropdown-item" href="#"><i class="fa-solid fa-address-card"></i>Editar
-                      Perfil</a></li>
-                  <li><a class="dropdown-item" href="#"><i class="fa-solid fa-language"></i>Idioma</a>
-                  </li>
-                  <li><a class="dropdown-item" href="#"><i class="fa-solid fa-palette"></i>Tema</a>
-                  </li>
-                  <li><a class="dropdown-item" href="#"><i class="fa-solid fa-right-from-bracket"></i>Cerrar Sesión</a>
-                  </li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
-                  <li><a class="dropdown-item" href="#"><i class="fa-solid fa-shield-halved"></i>Admin</a></li>
-                </ul>
-              </li>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--Header Logo-->
-    <nav class="navbar navbar-expand-lg p-0" id="main-navbar">
-      <div class="container-fluid">
-        <span class="p-2">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button></span>
-        <div class="collapse navbar-collapse p-0" id="navbarNav">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-house"></i>Kanban</a></li>
-            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-square-poll-vertical"></i>Informe</a>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-clipboard-question"></i>Cuestionario</a></li>
-            <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-qrcode"></i>QR</a>
-            </li>
-          </ul>
-        </div>
-    </nav>
-    <!--Header Menu-->
+  <?php require_once("./header.php");?>
   </header>
   <main>
-    <div class="container text-center">
-      <div class="row align-items-start">
-        <div class="col-4" ondrop="drop(event)" ondragover="allowDrop(event)">
-          To-Do
-          <div>
+    <div class="container-fluid text-center">
+      <div class="row align-items-start border rounded-top pt-2">
+        <div class="col-4 pymeshield-kanban border-end" id="toDo" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <p><strong>To-Do</strong></p>
+          <div class="flex-container"> 
             <?php
-            $tasca = new Tasca;
-            $tasca->listarTascas($conn, 'ToDo');
+            $tasca = new Kanban;
+            $tasca->listarKanban($conn, 'ToDo');
             ?>
+            </div>
           </div>
-        </div>
-        <div class="col-4" ondrop="drop(event)" ondragover="allowDrop(event)">
-          In Progress
+        <div class="col-4 pymeshield-kanban border-end" id="inProgress" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <p><strong>In Progress</strong></p>
           <?php
-          $tasca = new Tasca;
-          $tasca->listarTascas($conn, 'InProgress');
+          $tasca->listarKanban($conn, 'InProgress');
           ?>
         </div>
-        <div class="col-4" ondrop="drop(event)" ondragover="allowDrop(event)">
-          Done
+        <div class="col-4 pymeshield-kanban" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <p><strong>Done</strong></p>
           <?php
-          $tasca = new Tasca;
-          $tasca->listarTascas($conn, 'Done');
+          $tasca->listarKanban($conn, 'Done');
           ?>
         </div>
       </div>
     </div>
   </main>
   <footer class="bg-black text-center text-lg-center mt-auto">
-    <div class="text-center p-3">
-      <div class="fluid-container">
-        <div class="row">
-          <div id="logo-footer" class="col-6 col-md-3">
-            <a class="text-light" href="#"><img src="../Img/logo_pymeshield_black.png" alt="Logo" width="50px" style="margin-right: 5px;" class="d-inline-block align-text-middle"><i class="fa-solid fa-copyright"></i>pymeshield
-              by Pymeralia</a>
-          </div>
-          <div class="col-6 col-md-3">
-            <h6 id="title-footer">Acerca de Pymeralia</h6>
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#" class="text-light">Política de privacidad</a>
-              </li>
-              <li>
-                <a href="#" class="text-light">Política de cookies</a>
-              </li>
-              <li>
-                <a href="#" class="text-light">Aviso legal</a>
-              </li>
-              <li>
-                <a href="#" class="text-light">Ley de protección</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-6 col-md-3">
-            <h6 id="title-footer">Contacto</h6>
-            <p><i class="fa-solid fa-phone"></i>682849274 <br> <i class="fa-solid fa-envelope"></i>support@pymeralia.com
-            </p>
-          </div>
-          <div class="col-6 col-md-3">
-            <h6 id="title-footer">RRSS</h6>
-            <ul class="list-unstyled mb-0" id="footer-rrss">
-              <li>
-                <a class="text-light" href="#"><i class="fa-brands fa-tiktok"></i></a>
-                <a class="text-light" href="#"><i class="fa-brands fa-twitter"></i></a>
-              </li>
-              </li>
-              <li>
-                <a class="text-light" href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a class="text-light" href="#"><i class="fa-brands fa-facebook"></i></a>
-              </li>
-              <li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+  <?php require_once("./footer.php");?>
   </footer>
-  <script src="../JavaScript/kanban.js"></script>
 </body>
 
 </html>
