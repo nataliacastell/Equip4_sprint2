@@ -52,3 +52,32 @@ MDScreen:
             id: nav_drawer
 
             ContentNavigationDrawer:
+
+                AnchorLayout:
+                    anchor_x: "left"
+                    size_hint_y: None
+                    height: avatar.height
+
+                    Image:
+                        id: avatar
+                        size_hint: None, None
+                        size: "56dp", "56dp"
+                        source: "/files/Img/logo.png"
+
+                MDLabel:
+                    text: "PymeShield"
+                    font_style: "Button"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDLabel:
+                    text: "pimeralya@gmail.com"
+                    font_style: "Caption"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                ScrollView:
+
+                    DrawerList:
+                        id: md_list
+        
