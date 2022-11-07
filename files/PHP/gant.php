@@ -23,128 +23,56 @@ class Gant
         $this->idUsuari = $idUsuari;
     }    
     /**
-     * getIdGant
-     *
-     * @return void
-     */
-    public function getIdGant()
-    {
-        return $this->idGant;
-    }    
-    /**
-     * getIdTasca
-     *
-     * @return void
-     */
-    public function getIdTasca()
-    {
-        return $this->idTasca;
-    }    
-    /**
-     * getDescripcio
-     *
-     * @return void
-     */
-    public function getDescripcio()
-    {
-        return $this->descripcio;
-    }    
-    /**
-     * getIdUsuari
-     *
-     * @return void
-     */
-    public function getIdUsuari()
-    {
-        return $this->idUsuari;
-    }    
-    /**
-     * setIdGant
-     *
-     * @param  mixed $idGant
-     * @return void
-     */
-    public function setIdGant($idGant)
-    {
-        $this->idGant = $idGant;
-    }    
-    /**
-     * setIdTasca
-     *
-     * @param  mixed $idTasca
-     * @return void
-     */
-    public function setIdTasca($idTasca)
-    {
-        $this->idTasca = $idTasca;
-    }    
-    /**
-     * setIdDescripcio
-     *
-     * @param  mixed $descripcio
-     * @return void
-     */
-    public function setIdDescripcio($descripcio)
-    {
-        $this->descripcio = $descripcio;
-    }    
-    /**
-     * setIdUsuari
-     *
-     * @param  mixed $idUsuari
-     * @return void
-     */
-    public function setIdUsuari($idUsuari)
-    {
-        $this->idUsuari = $idUsuari;
-    }    
-    /**
      * assignarTasca
      *
      * @return void
      */
-    private function assignarTasca()
-    {
-    }    
-    /**
-     * assignarUsuari
-     *
-     * @return void
-     */
-    private function assignarUsuari()
-    {
-    }    
-    /**
-     * crearTasca
-     *
-     * @return void
-     */
-    private function crearTasca()
-    {
-    }    
+    private function assignarTasca($idTasca){
+        include_once 'connect.php';
+        conectar();
+        if ($linea = mysqli_query ($query= "UPDATE ... ;")){
+            printf ("Tasca assignada");
+        }
+        desconectar();
+    }          
     /**
      * establirDurada
      *
      * @return void
      */
-    private function establirDurada()
-    {
+    private function establirDurada(){
+        include_once 'connect.php';
+        conectar();
+        if ($linea = mysqli_query ($query= "UPDATE ... ;")){
+            printf ("Durada establida");
+        }
+        desconectar();
     }    
     /**
      * eliminarTasca
      *
      * @return void
      */
-    private function eliminarTasca()
-    {
+    private function eliminarTasca(){
+        include_once 'connect.php';
+        conectar();
+        if ($linea = mysqli_query ($query= "DELETE ... ;")){
+            printf ("Tasca eliminada");
+        }
+        desconectar();
     }    
     /**
      * modificarDurada
      *
      * @return void
      */
-    private function modificarDurada()
-    {
+    private function modificarDurada(){
+        include_once 'connect.php';
+        conectar();
+        if ($linea = mysqli_query ($query= "UPDATE ... ;")){
+            printf ("Durada modificada");
+        }
+        desconectar();
     }    
     /**
      * desactivarTasca
