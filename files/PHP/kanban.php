@@ -18,7 +18,44 @@
             return $arrayKanban;
         }
         function consultarKanban($id){
-            
+            include_once 'connect.php';
+            conectar();
+            if ($linea = mysqli_query ($query= "SELECT * FROM Kanban WHERE id.Kanban = '$id';")){
+
+            }
+            desconectar();
+            return $linea;
+        }
+
+        function consultaTasca($idTasca){
+            include_once 'connect.php';
+            conectar();
+            if ($linea = mysqli_query ($query= "SELECT * FROM Tasca ... ;")){
+
+            }
+            desconectar();
+            return $linea;
+        }
+        
+        function assignarTasca($idTasca,$idUsuari){
+            include_once 'connect.php';
+            conectar();
+            if ($linea = mysqli_query ($query= "UPDATE ... ;")){
+
+            }
+            desconectar();
+            return $linea;
+
+        }
+
+        function modificarEstat(){
+            include_once 'connect.php';
+            conectar();
+            if ($linea = mysqli_query ($query= "UPDATE ... ;")){
+
+            }
+            desconectar();
+            return $linea;
         }
     }
 ?>
