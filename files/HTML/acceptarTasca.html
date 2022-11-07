@@ -91,19 +91,32 @@
     <div id="container0">
         <div id="container1">
             <p>Inseguredad detectada</p>
-            <p class="inseguretat">(Descripcio de la inseguretat)</p>
+            <p class="inseguretat">Descripcio de la inseguretat (info volcada desde bbdd)</p>
             <br>
-            <p>Accions per a solucionar:</p>
-            <p class="solucio">(Descripció de la accio)</p>
-            <button class="boto esquerra">Ignore</button>
-            <button class="boto">Make myself</button>
-            <button class="boto dreta">Pymeralia</button>
+            <p>Solucions viables:</p>
+            
+            <form >
+                <div class="mb-3">
+                    <select class="solucio" type="text" id="solucio" class="form-select" placeholder="select">
+                    <option>opcio A (info volcada desde bbdd)</option>
+                    <option>opcio B (info volcada desde bbdd)</option>
+                    <option>opcio C (info volcada desde bbdd)</option>
+                    </select>
+                </div>
+                <!-- Enviem el form segons si la acepta + id pimeralia o +id empresa Auditada (opcio de crear 2 arxius amb el id de la empresa i crear tasca desde alli)-->
+                <button href="seguent tasca a aceptar" class="boto esquerra">Ignore</button>
+                <button type="submit" class="boto">Make myself</button>
+                <button type="submit" class="boto dreta">Pymeralia</button>
+            </form>
         </div>
+        <!-- Cambiar contingut info del div de dalt  -->
+
         <button class="boto">Previous</button>
         <button class="boto dreta">Next</button>
       </div>
 
     <main>
+        <!-- footer-->
         <footer class="bg-black text-center text-lg-center mt-auto">
             <div class="text-center p-3">
                 <div class="fluid-container">
