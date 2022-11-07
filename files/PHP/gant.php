@@ -28,7 +28,7 @@ class Gant
      * @return void
      */
     private function assignarTasca($idTasca){
-        include_once 'connect.php';
+        include_once 'conecta_desconecta.php';
         conectar();
         if ($linea = mysqli_query ($query= "UPDATE ... ;")){
             printf ("Tasca assignada");
@@ -41,7 +41,7 @@ class Gant
      * @return void
      */
     private function establirDurada(){
-        include_once 'connect.php';
+        include_once 'conecta_desconecta.php';
         conectar();
         if ($linea = mysqli_query ($query= "UPDATE ... ;")){
             printf ("Durada establida");
@@ -54,7 +54,7 @@ class Gant
      * @return void
      */
     private function eliminarTasca(){
-        include_once 'connect.php';
+        include_once 'conecta_desconecta.php';
         conectar();
         if ($linea = mysqli_query ($query= "DELETE ... ;")){
             printf ("Tasca eliminada");
@@ -67,7 +67,7 @@ class Gant
      * @return void
      */
     private function modificarDurada(){
-        include_once 'connect.php';
+        include_once 'conecta_desconecta.php';
         conectar();
         if ($linea = mysqli_query ($query= "UPDATE ... ;")){
             printf ("Durada modificada");

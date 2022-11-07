@@ -18,7 +18,7 @@
             return $arrayKanban;
         }
         function consultarKanban($id){
-            include_once 'connect.php';
+            include_once 'conecta_desconecta.php';
             conectar();
             if ($linea = mysqli_query ($query= "SELECT * FROM Kanban WHERE id.Kanban = '$id';")){
 
@@ -28,7 +28,7 @@
         }
 
         function consultaTasca($idTasca){
-            include_once 'connect.php';
+            include_once 'conecta_desconecta.php';
             conectar();
             if ($linea = mysqli_query ($query= "SELECT * FROM Tasca ... ;")){
 
@@ -38,7 +38,7 @@
         }
         
         function assignarTasca($idTasca,$idUsuari){
-            include_once 'connect.php';
+            include_once 'conecta_desconecta.php';
             conectar();
             if ($linea = mysqli_query ($query= "UPDATE ... ;")){
 
@@ -49,7 +49,7 @@
         }
 
         function modificarEstat(){
-            include_once 'connect.php';
+            include_once 'conecta_desconecta.php';
             conectar();
             if ($linea = mysqli_query ($query= "UPDATE ... ;")){
 
