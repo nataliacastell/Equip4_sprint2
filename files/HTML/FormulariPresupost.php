@@ -1,23 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../JavaScript/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="../CSS/bootstrap.min.css">
-    <link rel="stylesheet" href="../CSS/main.css">
-    <link href="../CSS/fontawesome.min.css" rel="stylesheet">
-    <link href="../CSS/brands.min.css" rel="stylesheet">
-    <link href="../CSS/solid.min.css" rel="stylesheet">
-    <script src="../JavaScript/form-validation.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <title>Presupost</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pymeshield Kanban</title>
+  <?php require_once("head.php");?>
+  <script src="../JavaScript/kanban.js"></script>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <header class="sticky-top">
+  <header class="sticky-top">
+  <?php require_once("header.php");?>
+  </header class="sticky-top">
+
         <div class="navbar navbar-expand-sm p-0" id="header-logo">
             <div class="container-fluid d-flex flex-row justify-content-between navbar-nav ">
                 <div class="p-2" id="logo">
@@ -94,10 +91,7 @@
                         <div class="row g-3 ">
 
                             <div class="col-12">
-                                <label for="preg1" class="form-label">Lorem ipsum dolor sit amet consectetur adipisicing
-                                    elit. Similique expedita sapiente fuga, distinctio numquam quis repellendus aut
-                                    nesciunt et quo. Nostrum maiores quia velit cupiditate quisquam nulla culpa
-                                    veritatis voluptatum?</label>
+                                <label for="preg1" class="form-label">Tasca a presupostar 1 -->Dades desde la bbdd</label>
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">€</span>
                                     <input type="text" class="form-control" name="preg1" placeholder="Cost" required>
@@ -106,10 +100,7 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="preg2" class="form-label">Lorem, ipsum dolor sit amet consectetur
-                                    adipisicing elit. Sequi doloremque a dolore obcaecati ipsam porro, aliquam minus,
-                                    ratione repellat fugiat, alias dicta sunt velit tempore laudantium eum quae
-                                    voluptatum asperiores?</label>
+                                <label for="preg2" class="form-label">Tasca a presupostar 2 -->Dades desde la bbdd</label>
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">€</span>
                                     <input type="text" class="form-control" name="preg2" placeholder="Cost" required>
@@ -118,10 +109,7 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="preg3" class="form-label">Lorem ipsum dolor sit amet consectetur adipisicing
-                                    elit. Asperiores facere consequuntur odio temporibus magnam libero, ullam neque
-                                    eaque, molestias in quis deleniti rem modi tempora vitae! Exercitationem quam
-                                    voluptas officia.</label>
+                                <label for="preg3" class="form-label"> Tasca a presupostar -->Dades desde la bbdd</label>
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">€</span>
                                     <input type="text" class="form-control" name="preg3" placeholder="Cost" required>
@@ -132,64 +120,14 @@
                             
                             <hr class="my-4">
 
-                            <button class="w-100 btn btn-primary btn-lg" type="submit">Enviar Formulari</button>
+                            <button class="w-100 btn btn-primary btn-lg" type="submit">Enviar Presupost</button>
                     </form>
                 </div>
             </div>
         </main>
-    </div>
         <footer class="bg-black text-center text-lg-center mt-auto">
-            <div class="text-center p-3">
-                <div class="fluid-container">
-                    <div class="row">
-                        <div id="logo-footer" class="col-6 col-md-3">
-                            <a class="text-light" href="#"><img src="../Img/logo_pymeshield_black.png" alt="Logo"
-                                    width="50px" style="margin-right: 5px;" class="d-inline-block align-text-middle"><i
-                                    class="fa-solid fa-copyright"></i>pymeshield
-                                by Pymeralia</a>
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <h6 id="title-footer">Acerca de Pymeralia</h6>
-                            <ul class="list-unstyled mb-0">
-                                <li>
-                                    <a href="#" class="text-light">Política de privacidad</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-light">Política de cookies</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-light">Aviso legal</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-light">Ley de protección</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <h6 id="title-footer">Contacto</h6>
-                            <p><i class="fa-solid fa-phone"></i>682849274 <br> <i
-                                    class="fa-solid fa-envelope"></i>support@pymeralia.com
-                            </p>
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <h6 id="title-footer">RRSS</h6>
-                            <ul class="list-unstyled mb-0" id="footer-rrss">
-                                <li>
-                                    <a class="text-light" href="#"><i class="fa-brands fa-tiktok"></i></a>
-                                    <a class="text-light" href="#"><i class="fa-brands fa-twitter"></i></a>
-                                </li>
-                                </li>
-                                <li>
-                                    <a class="text-light" href="#"><i class="fa-brands fa-instagram"></i></a>
-                                    <a class="text-light" href="#"><i class="fa-brands fa-facebook"></i></a>
-                                </li>
-                                <li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+  <?php require_once("footer.php");?>
+  </footer>
 </body>
 
 </html>
