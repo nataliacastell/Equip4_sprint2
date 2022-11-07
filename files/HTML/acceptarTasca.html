@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pymeshield Kanban</title>
+    <link rel="stylesheet" href="../CSS/kanban.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="../JavaScript/bootstrap.bundle.min.js"></script>
+    <script src="../JavaScript/kanban.js"></script>
     <link rel="stylesheet" href="../CSS/bootstrap.min.css">
     <link rel="stylesheet" href="../CSS/main.css">
     <link href="../CSS/fontawesome.min.css" rel="stylesheet">
     <link href="../CSS/brands.min.css" rel="stylesheet">
     <link href="../CSS/solid.min.css" rel="stylesheet">
-    <script src="../JavaScript/form-validation.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <title>Presupost</title>
+    <link href="../CSS/style.css" rel="stylesheet"/>
+
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -22,8 +26,7 @@
             <div class="container-fluid d-flex flex-row justify-content-between navbar-nav ">
                 <div class="p-2" id="logo">
                     <li class="nav-item"><a class="nav-link" href="#"><img src="../Img/logo_pymeshield.png" alt="Logo"
-                                class="d-inline-block align-text-middle">
-                            pymeshield</a></li>
+                                class="d-inline-block align-text-middle">pymeshield</a></li>
                 </div>
 
                 <!--Ruptura del responsive en 576px a 575px-->
@@ -82,62 +85,25 @@
         </nav>
         <!--Header Menu-->
 
+
     </header>
 
-    <div class="container p-3">
-        <main>
-            <div class="row">
-                <div class="">
-                    <h4 class="mb-3">Presupost</h4>
+    <div id="container0">
+        <div id="container1">
+            <p>Inseguredad detectada</p>
+            <p class="inseguretat">(Descripcio de la inseguretat)</p>
+            <br>
+            <p>Accions per a solucionar:</p>
+            <p class="solucio">(Descripció de la accio)</p>
+            <button class="boto esquerra">Ignore</button>
+            <button class="boto">Make myself</button>
+            <button class="boto dreta">Pymeralia</button>
+        </div>
+        <button class="boto">Previous</button>
+        <button class="boto dreta">Next</button>
+      </div>
 
-                    <form action="" method="post" class="needs-validation" novalidate>
-                        <div class="row g-3 ">
-
-                            <div class="col-12">
-                                <label for="preg1" class="form-label">Lorem ipsum dolor sit amet consectetur adipisicing
-                                    elit. Similique expedita sapiente fuga, distinctio numquam quis repellendus aut
-                                    nesciunt et quo. Nostrum maiores quia velit cupiditate quisquam nulla culpa
-                                    veritatis voluptatum?</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text">€</span>
-                                    <input type="text" class="form-control" name="preg1" placeholder="Cost" required>
-                                    
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <label for="preg2" class="form-label">Lorem, ipsum dolor sit amet consectetur
-                                    adipisicing elit. Sequi doloremque a dolore obcaecati ipsam porro, aliquam minus,
-                                    ratione repellat fugiat, alias dicta sunt velit tempore laudantium eum quae
-                                    voluptatum asperiores?</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text">€</span>
-                                    <input type="text" class="form-control" name="preg2" placeholder="Cost" required>
-                                    
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <label for="preg3" class="form-label">Lorem ipsum dolor sit amet consectetur adipisicing
-                                    elit. Asperiores facere consequuntur odio temporibus magnam libero, ullam neque
-                                    eaque, molestias in quis deleniti rem modi tempora vitae! Exercitationem quam
-                                    voluptas officia.</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text">€</span>
-                                    <input type="text" class="form-control" name="preg3" placeholder="Cost" required>
-                                    
-                                </div>
-                            </div>
-
-                            
-                            <hr class="my-4">
-
-                            <button class="w-100 btn btn-primary btn-lg" type="submit">Enviar Formulari</button>
-                    </form>
-                </div>
-            </div>
-        </main>
-    </div>
+    <main>
         <footer class="bg-black text-center text-lg-center mt-auto">
             <div class="text-center p-3">
                 <div class="fluid-container">
@@ -145,8 +111,7 @@
                         <div id="logo-footer" class="col-6 col-md-3">
                             <a class="text-light" href="#"><img src="../Img/logo_pymeshield_black.png" alt="Logo"
                                     width="50px" style="margin-right: 5px;" class="d-inline-block align-text-middle"><i
-                                    class="fa-solid fa-copyright"></i>pymeshield
-                                by Pymeralia</a>
+                                    class="fa-solid fa-copyright"></i>pymeshield by Pymeralia</a>
                         </div>
                         <div class="col-6 col-md-3">
                             <h6 id="title-footer">Acerca de Pymeralia</h6>
@@ -190,6 +155,7 @@
                 </div>
             </div>
         </footer>
+        <script src="../JavaScript/kanban.js"></script>
 </body>
 
 </html>

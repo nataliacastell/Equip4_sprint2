@@ -69,3 +69,10 @@ a:hover {
     font-size: 18px;
   }
 }
+main { 
+  padding: 25px 5px;
+}
+
+.pymeshield-kanban {
+  min-height: 400px;
+}
