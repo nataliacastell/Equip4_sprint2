@@ -79,7 +79,12 @@ class Gant
      *
      * @return void
      */
-    private function desactivarGant()
-    {
+    private function desactivarGant(){
+        include_once 'conecta_desconecta.php';
+        conectar();
+        if ($linea = mysqli_query ($query= "DELETE ... ;")){
+            printf ("Gant desactivat");
+        }
+        desconectar();
     }
 }
