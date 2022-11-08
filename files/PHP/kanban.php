@@ -31,10 +31,12 @@ class Kanban extends Tasca
           </div>';
       }
       //mysqli_close($conn);
-    } else {
-      echo '<div class="alert alert-danger" role="alert">
-         ¡No hay tareas!
-       </div>';
     }
+  }
+  function guardarKanban($conn, $id, $estat)
+  {
+    $query = "UPDATE `Tasca` SET `Estat` = '$estat' WHERE `Tasca`.`Id` = $id";
+    mysqli_query($conn, $query) or trigger_error("Consulta SQL fallida!: $query - Error: " . mysqli_error($conn), E_USER_ERROR);
+
   }
 }
