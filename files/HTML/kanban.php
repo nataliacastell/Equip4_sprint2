@@ -1,5 +1,5 @@
 <?php
-require_once("../PHP/kanban.php");
+require_once("../PHP/TascaClass.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -24,21 +24,21 @@ require_once("../PHP/kanban.php");
           <p><strong>To-Do</strong></p>
           <div class="flex-container"> 
             <?php
-            $tasca = new Kanban;
-            $tasca->listarKanban($conn, 'ToDo');
+            $tasca = new Tasca;
+            $tasca->listarKanban($connexioDB, 'ToDo');
             ?>
             </div>
           </div>
         <div class="col-4 pymeshield-kanban border-end" id="inProgress" ondrop="drop(event)" ondragover="allowDrop(event)">
           <p><strong>In Progress</strong></p>
           <?php
-          $tasca->listarKanban($conn, 'InProgress');
+          $tasca->listarKanban($connexioDB, 'InProgress');
           ?>
         </div>
         <div class="col-4 pymeshield-kanban" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
           <p><strong>Done</strong></p>
           <?php
-          $tasca->listarKanban($conn, 'Done');
+          $tasca->listarKanban($connexioDB, 'Done');
           ?>
         </div>
       </div>
