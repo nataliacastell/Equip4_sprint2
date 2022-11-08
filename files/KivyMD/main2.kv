@@ -51,33 +51,37 @@ MDScreen:
         MDNavigationDrawer:
             id: nav_drawer
 
-            ContentNavigationDrawer:
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: '8dp'
+                padding: '8dp'
 
-                AnchorLayout:
-                    anchor_x: "left"
-                    size_hint_y: None
-                    height: avatar.height
-
-                    Image:
-                        id: avatar
-                        size_hint: None, None
-                        size: "56dp", "56dp"
-                        source: "/files/Img/logo.png"
+                Image:
+                    source: '../Img/PymeShieldLiteTransparent.png'
 
                 MDLabel:
-                    text: "PymeShield"
-                    font_style: "Button"
+                    text: '     PymeShield'
+                    font_style: 'Subtitle1'
                     size_hint_y: None
                     height: self.texture_size[1]
 
                 MDLabel:
-                    text: "pimeralya@gmail.com"
-                    font_style: "Caption"
+                    text: '     pymeshield@gmail.com'
+                    font_style: 'Caption'
                     size_hint_y: None
                     height: self.texture_size[1]
 
                 ScrollView:
-
-                    DrawerList:
-                        id: md_list
-        
+                    MDList:
+                        OneLineListItem:
+                            text: 'Menu'
+                            IconLeftWidget:
+                                icon: 'menu'
+                        OneLineListItem:
+                            text: 'Kanban'
+                        OneLineListItem:
+                            text: 'Gantt'
+                        OneLineListItem:
+                            text: 'Contacte'
+                        OneLineListItem:
+                            text: 'Tanca Sessio'

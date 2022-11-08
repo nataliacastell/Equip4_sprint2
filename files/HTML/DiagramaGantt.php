@@ -2,20 +2,12 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../JavaScript/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="../CSS/bootstrap.min.css">
-    <link rel="stylesheet" href="../CSS/main.css">
-    <link href="../CSS/fontawesome.min.css" rel="stylesheet">
-    <link href="../CSS/brands.min.css" rel="stylesheet">
-    <link href="../CSS/solid.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="../CSS/gant.css">
-    <script type="text/javascript" src="../JavaScript/javascript.js"></script>
-    <title>Gantt</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pymeshield Kanban</title>
+  <?php require_once("head.php");?>
+  <script src="../JavaScript/kanban.js"></script>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -104,57 +96,8 @@
         </script>
     </main>
     <footer class="bg-black text-center text-lg-center mt-auto">
-        <div class="text-center p-3">
-            <div class="fluid-container">
-                <div class="row">
-                    <div id="logo-footer" class="col-6 col-md-3">
-                        <a class="text-light" href="#"><img src="../Img/logo_pymeshield_black.png" alt="Logo"
-                                width="50px" style="margin-right: 5px;" class="d-inline-block align-text-middle"><i
-                                class="fa-solid fa-copyright"></i>pymeshield
-                            by Pymeralia</a>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <h6 id="title-footer">Acerca de Pymeralia</h6>
-                        <ul class="list-unstyled mb-0">
-                            <li>
-                                <a href="#" class="text-light">Política de privacidad</a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-light">Política de cookies</a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-light">Aviso legal</a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-light">Ley de protección</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <h6 id="title-footer">Contacto</h6>
-                        <p><i class="fa-solid fa-phone"></i>682849274 <br> <i
-                                class="fa-solid fa-envelope"></i>support@pymeralia.com
-                        </p>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <h6 id="title-footer">RRSS</h6>
-                        <ul class="list-unstyled mb-0" id="footer-rrss">
-                            <li>
-                                <a class="text-light" href="#"><i class="fa-brands fa-tiktok"></i></a>
-                                <a class="text-light" href="#"><i class="fa-brands fa-twitter"></i></a>
-                            </li>
-                            </li>
-                            <li>
-                                <a class="text-light" href="#"><i class="fa-brands fa-instagram"></i></a>
-                                <a class="text-light" href="#"><i class="fa-brands fa-facebook"></i></a>
-                            </li>
-                            <li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-</body>
-
-</html>
+        <?php require_once("footer.php");?>
+        </footer>
+      </body>
+      
+      </html>

@@ -1,5 +1,6 @@
 from pickle import FALSE, TRUE
 import MySQLdb
+import MySQLdb.cursors
 # Datos de la BBDD:
 DB_HOST = 'localhost' 
 DB_USER = 'shell' 
@@ -10,7 +11,7 @@ DB_NAME = 'pymeshell'
 def consultaDatos(query): # añadir consulta en variable query
     datos = [DB_HOST, DB_USER, DB_PASS, DB_NAME] 
     
-    conn = MySQLdb.connect(*datos) # Conectar a la base de datos 
+    conn = MYSQLdb.connect(*datos) # Conectar a la base de datos 
     cursor = conn.cursor()         # Crear un cursor 
     cursor.execute(query)          # Ejecutar una consulta 
 
