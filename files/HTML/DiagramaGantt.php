@@ -16,7 +16,7 @@
     </header>
     <main>
         <h1 style="text-align: center;">Gantt Projecte</h1>
-        <div id="gantt"></div>
+        <div class="table-responsive" id="gantt"></div>
         <script type="text/javascript">
 
             var prymeralia = "#d46b00";

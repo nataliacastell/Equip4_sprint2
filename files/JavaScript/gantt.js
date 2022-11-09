@@ -36,13 +36,13 @@ class Gantt {
     * @returns {Sting} Html code
     */
     buildTableHeader() {
-        var html = '<table><thead><tr>';
+        var html = '<table class="table"><thead><tr class="table-primary">';
         var diffDays = this.diffInDays(this.maxDate, this.minDate) + 1;
         const actual = new Date(this.minDate);
 
         for (let i = 0; i < diffDays; i++) {
             actual.setDate(actual.getDate() + 1);
-            html += '<th>' + actual.toISOString().substr(0, 10).replace('T', ' ') + "</th>";
+            html += '<th scope="col">' + actual.toISOString().substr(0, 10).replace('T', ' ') + "</th>";
         }
         html += '</tr></thead><tbody>';
 
@@ -70,9 +70,9 @@ class Gantt {
             if (this.minDate == dMin) daysBefore = 0;
             if (this.maxDate == dMax) daysAfter = 0;
 
-            html += '<tr>';
+            html += '<tr class="table-secondary">';
             if (daysBefore > 0) for (let j = 0; j < daysBefore; j++) html += '<td></td>';
-            html += '<td class="event-cell" colspan="' + days + '" style="background-color: ' + task[3] + ';"><span>' + task[4] + '% finalitzat</span>' + task[0] + '</td>';
+            html += '<td class="table-secondary" colspan="' + days + '" style="background-color: ' + task[3] + ';"><span>' + task[4] + '% finalitzat</span>' + task[0] + '</td>';
             if (daysAfter > 0) for (let j = 0; j < daysAfter; j++) html += '<td></td>';
             html += '</tr>';
         }
