@@ -3,6 +3,7 @@ MDScreen:
     MDBottomNavigation:
         text_color_active: "black"
 
+#Primera pantalla
         MDBottomNavigationItem:
             name: 'screen 3'
             text: 'Tasca'
@@ -12,17 +13,18 @@ MDScreen:
                 text: 'Llistat Tasques'
                 halign: 'center'
 
+#Segona pantalla
         MDBottomNavigationItem:
             name: 'screen 1'
             text: 'Kanban'
             icon: 'clipboard-check-multiple'
             Image:
                 source: 'files/KivyMD/ImgProva/Kanban.png'
-
             MDLabel:
 #                text: 'Kanban'
                 halign: 'center'
 
+#Tercera pantalla
         MDBottomNavigationItem:
             name: 'screen 2'
             text: 'Gantt'
@@ -72,6 +74,7 @@ MDScreen:
                     size_hint_y: None
                     height: self.texture_size[1]
 
+    #Falta fer les screens per a cada "menu"
                 ScrollView:
                     MDList:
                         OneLineListItem:
