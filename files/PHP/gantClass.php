@@ -1,4 +1,6 @@
 <?php
+include 'connexioBDD.php';
+
 class Gant
 {
     private $idGant;
