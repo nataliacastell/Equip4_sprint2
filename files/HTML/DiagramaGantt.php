@@ -22,7 +22,7 @@ require_once("../PHP/TascaClass.php");
         <div class="table-responsive rounded-top" id="gantt"></div>
         <?php
         $ganntt1 = new Tasca;
-        $modal = $ganntt1->listarGantt($connexioDB);
+        $modal = $ganntt1->listarGantt();
         while ($row = mysqli_fetch_array($modal, MYSQLI_ASSOC)) {
             echo '<div class="modal fade" id="modal' . $row["Id"] . '" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
               <div class="modal-dialog">

@@ -1,6 +1,4 @@
 <?php
-include 'connexioBDD.php';
-
 
 class Tasca
 {
@@ -63,8 +61,9 @@ class Tasca
    function eliminarTasca()
    {
    }
-   function modificarTasca($connexioDB, $id, $estat)
+   function modificarTasca($id, $estat)
    {
+      include 'connexioBDD.php';
       $query = "UPDATE `Tasca` SET `Estat` = '$estat' WHERE `Tasca`.`Id` = $id";
       mysqli_query($connexioDB, $query) or trigger_error("Consulta SQL fallida!: $query - Error: " . mysqli_error($connexioDB), E_USER_ERROR);
    }
@@ -77,8 +76,9 @@ class Tasca
    function modificarEstatTasca()
    {
    }
-   function listarKanban($connexioDB, $Estat)
+   function listarKanban($Estat)
    {
+      include 'connexioBDD.php';
       // query por mejorar, ahora solo lista todas por estado
       $query = "SELECT * FROM `Tasca` WHERE `Estat` = '$Estat'";
       $result = mysqli_query($connexioDB, $query) or trigger_error("Consulta SQL fallida!: $query - Error: " . mysqli_error($connexioDB), E_USER_ERROR);
@@ -103,8 +103,9 @@ class Tasca
       }
       //mysqli_close($conn);
    }
-   function jsonGantt($connexioDB)
+   function jsonGantt()
    {
+      include 'connexioBDD.php';
       $query = $connexioDB->prepare('SELECT Nom, DataInici, DataFinal, grado, porcentaje, id FROM `Tasca`');
       $query->execute();
       $result = $query->get_result();
@@ -112,8 +113,9 @@ class Tasca
 
       echo json_encode($outp);
    }
-   function listarGantt($connexioDB)
+   function listarGantt()
    {
+      include 'connexioBDD.php';
       // query por mejorar, ahora solo lista todas por estado
       $query = "SELECT * FROM `Tasca`";
       return $connexioDB->query($query);

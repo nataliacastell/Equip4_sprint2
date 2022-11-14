@@ -1,5 +1,4 @@
 <?php
-include 'connexioBDD.php';
 
     class Kanban{
         public $id;
