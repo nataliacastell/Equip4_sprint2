@@ -38,7 +38,7 @@
     function __construct1()
 	{
 		$this->idUsuari=$_SESSION['id'];
-	}   
+	}
 
         /* Getters */
 
@@ -80,19 +80,14 @@
 
         public function calcularPresupost($presupost_1, $presupost_2, $presupost_3){
             
-            $totalPresupost = $presupost_1 + $presupost_2 + $presupost_3;
-
-            return $totalPresupost;
         }
 
         public function modificarPresupost($id, $presupost){
-            $this->id = $id;
-            $this->presupost = $presupost;
+    
         }
 
         public function eliminarPresupost($id){
-            $this->id = $id;
-            $this->presupost = "Presupost eliminat";
+            
         }
     
     
