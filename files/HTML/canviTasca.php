@@ -10,21 +10,21 @@ function consultaDades(){
     conectar(); 
     $linies = array(mysqli_query ($query= "
         SELECT * 
-        FROM table_name
-        WHERE condition; 
+        FROM Tasca
+        WHERE id; 
 
     "));
     return $linies;
 }
 
-# Mostrar dades primera vegada
+# Mostrar dades 
 function mostrarDades(){
     $linies = array(consultaDades());
     if ($count === 0){
-        return $linies[$numPagActual-1];
+        printf($linies[$numPagActual-1]);
     }else{
         $count ++;
-        return $linies[$numPagActual-1];
+        printf($linies[$numPagActual-1]);
     }
 }
 
