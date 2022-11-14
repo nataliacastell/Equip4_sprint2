@@ -10,19 +10,21 @@ $numPagActual= 1;
 # Consulta les dades necessaries
 function consultaDades(){
     include_once 'connexioBDD.php';
-    $linies = array(mysqli_query ($query= "
+    $query= "
         SELECT * 
         FROM Tasca
-        WHERE id='$this->idUsuari'; 
+        WHERE Tasca.id='$this->idUsuari'; 
 
-    "));
+    ";
+    $linies = mysqli_query($connexioDB,$query);
     $connexioDB->close();
+    $linies=mysqli_fetch_array($linies);
     return $linies;
 }
 
 # Mostrar dades 
 function mostrarDades(){
-    $linies = array(consultaDades());
+    $linies = consultaDades();
     if ($count === 0){
         printf($linies[$numPagActual-1]);
     }else{
@@ -45,13 +47,14 @@ function anteriorDataDiv($linies){
 
 # Conta cuantes linies te la consulta per mostrar el num de pag
 function contarLinies(){
-        include_once 'connexioBDD.php';
-    $numlines = mysqli_query ($query= "
+    include_once 'connexioBDD.php';
+    $query= "
         SELECT COUNT(column_name)
         FROM table_name
         WHERE condition; 
     
-    ");
+    ";
+    $numlines = mysqli_query ();
     $connexioDB->close();
     return $numlines; 
 }
@@ -59,3 +62,5 @@ function contarLinies(){
 
 
 ?>
+//
+

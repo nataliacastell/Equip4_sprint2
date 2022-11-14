@@ -1,4 +1,7 @@
 <?php
+# VARIABLES GLOBALS
+session_start();
+$_SESSION['id'] = 1;
 
 class Tasca
 {
