@@ -3,6 +3,7 @@ include "/../../TascaClas.php";
 # VARIABLES GLOBALS
 session_start();
 $_SESSION['id'] = 1;
+
 $count = 0;
 $numlinesReals= contarLinies();
 $numPagActual= 1;
