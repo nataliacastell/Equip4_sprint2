@@ -6,14 +6,14 @@ $numPagActual= 1;
 
 # Consulta les dades necessaries
 function consultaDades(){
-    include_once 'conecta_desconecta.php';
-    conectar(); 
+    include_once 'connexioBDD.php';
     $linies = array(mysqli_query ($query= "
         SELECT * 
         FROM Tasca
         WHERE id; 
 
     "));
+    $connexioDB->close();
     return $linies;
 }
 
@@ -42,15 +42,14 @@ function anteriorDataDiv($linies){
 
 # Conta cuantes linies te la consulta per mostrar el num de pag
 function contarLinies(){
-    include_once 'conecta_desconecta.php';
-    conectar();
+        include_once 'connexioBDD.php';
     $numlines = mysqli_query ($query= "
         SELECT COUNT(column_name)
         FROM table_name
         WHERE condition; 
     
     ");
-    desconectar();
+    $connexioDB->close();
     return $numlines; 
 }
 
