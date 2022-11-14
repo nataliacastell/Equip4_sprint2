@@ -36,13 +36,14 @@ class Gantt {
     * @returns {Sting} Html code
     */
     buildTableHeader() {
-        var html = '<table><thead><tr>';
+        var html = '<table class="table table-borderless"><thead><tr class="table-dark" style="line-height: 30px;">';
         var diffDays = this.diffInDays(this.maxDate, this.minDate) + 1;
         const actual = new Date(this.minDate);
 
         for (let i = 0; i < diffDays; i++) {
             actual.setDate(actual.getDate() + 1);
-            html += '<th>' + actual.toISOString().substr(0, 10).replace('T', ' ') + "</th>";
+            var options = { year: '2-digit', month: 'numeric', day: 'numeric' };
+            html += '<th scope="col">' + actual.toLocaleDateString('es-ES', options) + "</th>";
         }
         html += '</tr></thead><tbody>';
 
@@ -70,9 +71,9 @@ class Gantt {
             if (this.minDate == dMin) daysBefore = 0;
             if (this.maxDate == dMax) daysAfter = 0;
 
-            html += '<tr>';
+            html += '<tr class="table-light">';
             if (daysBefore > 0) for (let j = 0; j < daysBefore; j++) html += '<td></td>';
-            html += '<td class="event-cell" colspan="' + days + '" style="background-color: ' + task[3] + ';"><span>' + task[4] + '% finalitzat</span>' + task[0] + '</td>';
+            html += '<td class="table-light event-cell p-3 bg-' + task[3] + '" id="tasca' + task[5] + '" data-bs-toggle="modal" data-bs-target="#modal'+ task[5]+ '" colspan="' + days + '"><span>' + task[4] + '%</span>' + task[0] + '</td>';
             if (daysAfter > 0) for (let j = 0; j < daysAfter; j++) html += '<td></td>';
             html += '</tr>';
         }
@@ -97,3 +98,10 @@ class Gantt {
 
 
 }
+
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onload = function () {
+    const obj = new Gantt(JSON.parse(this.responseText));
+}
+xmlhttp.open("GET", "ajaxGantt.php", true);
+xmlhttp.send();

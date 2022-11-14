@@ -82,14 +82,11 @@ class Tasca
       // query por mejorar, ahora solo lista todas por estado
       $query = "SELECT * FROM `Tasca` WHERE `Estat` = '$Estat'";
       $result = mysqli_query($connexioDB, $query) or trigger_error("Consulta SQL fallida!: $query - Error: " . mysqli_error($connexioDB), E_USER_ERROR);
-      $count = mysqli_num_rows($result);
-      if ($count > 0) {
-         mysqli_data_seek($result, 0);
-         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-            echo '<div class="alert alert-success" id="tasca' . $row["Id"] . '" data-bs-toggle="modal" data-bs-target="#modal' . $row["Id"] . '" draggable="true" ondragstart="drag(event)">';
-            echo $row["Nom"];
-            echo '</div>';
-            echo '<div class="modal fade" id="modal' . $row["Id"] . '" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+      while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+         echo '<div class="alert alert-' . $row["grado"] . '" id="tasca' . $row["Id"] . '" data-bs-toggle="modal" data-bs-target="#modal' . $row["Id"] . '" draggable="true" ondragstart="drag(event)">';
+         echo $row["Nom"];
+         echo '</div>';
+         echo '<div class="modal fade" id="modal' . $row["Id"] . '" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -97,14 +94,28 @@ class Tasca
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body"><h2 class="fs-5"><i class="fa-regular fa-clipboard"></i>Descripción</h2><p>'
-               . $row["Descripcio"] .
-               '</p><hr><h2 class="fs-5"><i class="fa-regular fa-clock"></i>Fecha</h2><p>' . $row["DataInici"] . ' a ' . $row["DataFinal"] .
-               '</p></div>
+            . $row["Descripcio"] .
+            '</p><hr><h2 class="fs-5"><i class="fa-regular fa-clock"></i>Fecha</h2><p>' . $row["DataInici"] . ' a ' . $row["DataFinal"] .
+            '</p></div>
                 </div>
               </div>
             </div>';
-         }
-         //mysqli_close($conn);
       }
+      //mysqli_close($conn);
+   }
+   function jsonGantt($connexioDB)
+   {
+      $query = $connexioDB->prepare('SELECT Nom, DataInici, DataFinal, grado, porcentaje, id FROM `Tasca`');
+      $query->execute();
+      $result = $query->get_result();
+      $outp = $result->fetch_all();
+
+      echo json_encode($outp);
+   }
+   function listarGantt($connexioDB)
+   {
+      // query por mejorar, ahora solo lista todas por estado
+      $query = "SELECT * FROM `Tasca`";
+      return $connexioDB->query($query);
    }
 }

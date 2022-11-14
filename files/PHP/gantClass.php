@@ -1,4 +1,6 @@
 <?php
+include 'connexioBDD.php';
+
 class Gant
 {
     private $idGant;
@@ -83,7 +85,7 @@ class Gant
         include_once 'conecta_desconecta.php';
         conectar();
         if ($linea = mysqli_query ($query= "DELETE ... ;")){
-            printf ("Gant desactivat");
+            printf ("Gantt desactivat");
         }
         desconectar();
     }
