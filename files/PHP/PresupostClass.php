@@ -1,4 +1,5 @@
 <?php
+
 # VARIABLES GLOBALS
 session_start();
 $_SESSION['id'] = 1;
@@ -16,6 +17,7 @@ $_SESSION['id'] = 1;
      * @param  mixed $idUsuari
      * @return void
      */
+
     function __construct(){
 		//obtengo un array con los parámetros enviados a la función
 		$params = func_get_args();
@@ -89,10 +91,11 @@ $_SESSION['id'] = 1;
         }
 
         public function eliminarPresupost($id){
-            
+            include_once 'connexioBDD.php'
+            if ($linea = mysqli_query ($query= "DELETE ...;")){
+                printf ("Pressupost eliminat");
+            }
+            $connexioDB->close();
         }
-    
-    
-    
-    
+
     }
