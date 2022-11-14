@@ -1,5 +1,4 @@
 <?php
-include 'connexioBDD.php';
 
                             $presupost1 = $_POST['preg1'];
                             $presupost2 = $_POST['preg2'];
