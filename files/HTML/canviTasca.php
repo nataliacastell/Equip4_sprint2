@@ -1,5 +1,8 @@
 <?php 
+include "/../../TascaClas.php";
 # VARIABLES GLOBALS
+session_start();
+$_SESSION['id'] = 1;
 $count = 0;
 $numlinesReals= contarLinies();
 $numPagActual= 1;
@@ -10,7 +13,7 @@ function consultaDades(){
     $linies = array(mysqli_query ($query= "
         SELECT * 
         FROM Tasca
-        WHERE id; 
+        WHERE id='$this->idUsuari'; 
 
     "));
     $connexioDB->close();
