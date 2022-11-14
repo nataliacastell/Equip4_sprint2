@@ -37,7 +37,10 @@ class Gant
     function __construct1()
 	{
 		$this->idUsuari=$_SESSION['id'];
-	}   
+	} 
+    
+    
+    
     /**
      * assignarTasca
      *
