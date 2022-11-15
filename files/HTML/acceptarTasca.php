@@ -29,16 +29,7 @@ $_SESSION['id'] = 2;?>
 
               // Cal arreglar per a que agafi la ruta i no tenir tot el codi aqui dins
 
-              $db_host="mariadb"; //si no es "mariadb".
-              $db="oversegurity"; //nom de la base de dades
-              $user="root"; //usuari BDD
-              $pass="root"; //pass BDD
-
-              $connexioDB = mysqli_connect($db_host, $user, $pass, $db);
-
-              if ($connexioDB->connect_error) {
-                die("Connexió fallida: " . $connexioDB->connect_error);
-              }
+              include_once '../PHP/connexioBDD.php';
               $id_user=$_SESSION['id'] ;             
               $query= "
               SELECT name_recommendation 
@@ -69,16 +60,8 @@ $_SESSION['id'] = 2;?>
 
                     // Cal arreglar per a que agafi la ruta i no tenir tot el codi aqui dins
                     
-                    $db_host="mariadb"; //si no es "mariadb".
-                    $db="oversegurity"; //nom de la base de dades
-                    $user="root"; //usuari BDD
-                    $pass="root"; //pass BDD
-      
-                    $connexioDB = mysqli_connect($db_host, $user, $pass, $db);
-      
-                    if ($connexioDB->connect_error) {
-                      die("Connexió fallida: " . $connexioDB->connect_error);
-                    }
+                    include_once '../PHP/connexioBDD.php';
+
                     $id_user=$_SESSION['id'] ;             
                     $query= "
                     SELECT * 
@@ -102,10 +85,38 @@ $_SESSION['id'] = 2;?>
                     </select>
                 </div>
                 <!-- Enviem el form segons si la acepta + id pimeralia o +id empresa Auditada (opcio de crear 2 arxius amb el id de la empresa i crear tasca desde alli)-->
-                <button href="seguent tasca a aceptar" class="btn btn-secondary esquerra">Ignore</button>
-                <button type="submit" class="btn btn-secondary">Make myself</button>
-                <button type="submit" class="btn btn-secondary dreta">Pymeralia</button>
-            </form>
+                <!-- 
+                  #Boto pymeralia
+                  function assignarPymeralia()
+                  include_once '../PHP/connexioBDD.php';
+                  $id_user=$_SESSION['id'] ;             
+                  $query= "SELECT * FROM tasks WHERE tasks.id_user= '$id_user'";
+                  $linies = mysqli_query($connexioDB,$query);
+                  $linia = mysqli_fetch_array($linies);
+                  if($linia['assing']==null){
+                    $pymeralia= 1;
+                    $query= "SELECT * FROM tasks WHERE tasks.id_user= '$id_user'";
+
+                  }
+                ?>
+                -->
+                <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="gridCheck">
+                  <label class="form-check-label check" for="gridCheck" style="aling-text:left">Aceptar Solucion?</label>
+                </div>
+                </div>
+                <div class="form-group " style="margin-top: 20px;" >
+                <select class="custom-select">
+                  <option selected>Quien quieres que lo gestione?</option>
+                  <option value="1">Que lo gestione Pymeralia</option>
+                  <option value="2">Mi empresa se encarga de gestionarlo</option>
+                </select>
+                </div>
+                <div class="form-group" style="margin-top: 20px;">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+              </form>
         </div>
         <!-- Cambiar contingut info del div de dalt  -->
 
