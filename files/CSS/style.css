@@ -1,5 +1,5 @@
 .solucio{
-	color: green
+	color: green !important
 }
 
 .inseguretat{
@@ -34,7 +34,7 @@ font-size: 20px;
 	border-radius: 10px;
 	border-color: black; 
 	color: rgb(0, 0, 0);
-	font-size: 20px;
+	font-size: 17px !important;
 	margin: auto;
 	margin-bottom: 20px; 
 	padding: 5%!important;
