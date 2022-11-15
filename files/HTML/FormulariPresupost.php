@@ -33,31 +33,20 @@
                                 <label for="preg1" class="form-label">
                                     <?php 
                                         $presupuesto = new Presupost();
-                                        $resultat = $presupuesto->mostrarTasca(); ?>
+                                        $resultat = $presupuesto->mostrarTasca(); 
+
+                                        foreach ($resultat as $row){
+                                            echo '<div class="col-12">',
+                                            '<label for="preg2" class="form-label">'. $row['name_task'] . '<br>' . $row['description_task'] .'</label>',
+                                            '<div class="input-group has-validation">',
+                                                '<span class="input-group-text">€</span>',
+                                                '<input type="text" class="form-control" name="preg2" placeholder="Cost" required>',
+            
+                                            '</div>',
+                                        '</div>'; 
+                                        };
+                                        ?>
                                 </label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text">€</span>
-                                    <input type="text" class="form-control" name="preg1" placeholder="Cost" required>
-
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <label for="preg2" class="form-label">Tasca a presupostar 2 -->Dades desde la bbdd</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text">€</span>
-                                    <input type="text" class="form-control" name="preg2" placeholder="Cost" required>
-
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <label for="preg3" class="form-label"> Tasca a presupostar -->Dades desde la bbdd</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text">€</span>
-                                    <input type="text" class="form-control" name="preg3" placeholder="Cost" required>
-                                </div>
-                            </div>
                             <hr class="my-4">
                             <button class="w-100 btn btn-primary btn-lg" type="submit">Enviar Presupost</button>
                     </form>
