@@ -1,4 +1,5 @@
 <?php
+// está unificada con la clase Tasca, clase inservible
 # VARIABLES GLOBALS
 session_start();
 $_SESSION['id'] = 1;

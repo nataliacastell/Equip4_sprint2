@@ -1,5 +1,5 @@
 <?php
-
+    // está unificada con la clase tasca, clase inservible
     class Kanban{
         public $id;
         public $idTasca;
