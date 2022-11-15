@@ -20,7 +20,7 @@ require_once("../PHP/TascaClass.php");
   <main>
     <div class="container-fluid text-center">
       <div class="row align-items-start border rounded-top pt-2">
-        <div class="col-4 pymeshield-kanban border-end" id="toDo" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="col-4 pymeshield-kanban border-end" id="ToDo" ondrop="drop(event)" ondragover="allowDrop(event)">
           <p><strong>To-Do</strong></p>
           <div class="flex-container">
             <?php
@@ -29,13 +29,13 @@ require_once("../PHP/TascaClass.php");
             ?>
           </div>
         </div>
-        <div class="col-4 pymeshield-kanban border-end" id="inProgress" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="col-4 pymeshield-kanban border-end" id="InProgress" ondrop="drop(event)" ondragover="allowDrop(event)">
           <p><strong>In Progress</strong></p>
           <?php
           $tasca->listarKanban('InProgress');
           ?>
         </div>
-        <div class="col-4 pymeshield-kanban" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="col-4 pymeshield-kanban" id="Done" ondrop="drop(event)" ondragover="allowDrop(event)">
           <p><strong>Done</strong></p>
           <?php
           $tasca->listarKanban('Done');
