@@ -2,7 +2,7 @@
 include "/../../TascaClas.php";
 # VARIABLES GLOBALS
 session_start();
-$_SESSION['id'] = 1;
+$_SESSION['id'] = 2;
 
 $count = 0;
 $numlinesReals= contarLinies();
@@ -19,7 +19,7 @@ function consultaincidencia(){
     INNER JOIN questions 
     ON answers.id_question = questions.id_question 
     INNER JOIN questionnaries 
-    ON questions.id_questionary = questionnaries.id_user 
+    ON questions.id_questionary = questionnaries.id_questionary 
     WHERE questionnaries.id_user ='$id_user'; 
 
     ";
