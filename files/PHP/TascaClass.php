@@ -39,9 +39,10 @@ class Tasca
     *
     * @return void
     */
-   function __construct1()
+   function __construct1($Estat)
    {
-      $this->idUsuari = $_SESSION['id'];
+      $this->id = $_SESSION['id'];
+      $this->Estat = $Estat;
    }
    public function getId()
    {
@@ -87,17 +88,17 @@ class Tasca
    function eliminarTasca()
    {
    }
-   function modificarTasca($id, $estat)
+   function modificarTasca($id)
    {
       include 'connexioBDD.php';
-      if ($estat == "InProgress") {
-         $query = "UPDATE `tasks` SET `state` = '$estat', `percentage` = 50 WHERE `tasks`.`id_task` = $id";
+      if ($this->Estat == "InProgress") {
+         $query = "UPDATE `tasks` SET `state` = '$this->Estat', `percentage` = 50 WHERE `tasks`.`id_task` = $id";
          mysqli_query($connexioDB, $query);
-      } else if ($estat == "Done") {
-         $query = "UPDATE `tasks` SET `state` = '$estat', `percentage` = 100 WHERE `tasks`.`id_task` = $id";
+      } else if ($this->Estat == "Done") {
+         $query = "UPDATE `tasks` SET `state` = '$this->Estat', `percentage` = 100 WHERE `tasks`.`id_task` = $id";
          mysqli_query($connexioDB, $query);
       } else {
-         $query = "UPDATE `tasks` SET `state` = '$estat', `percentage` = 0 WHERE `tasks`.`id_task` = $id";
+         $query = "UPDATE `tasks` SET `state` = '$this->Estat', `percentage` = 0 WHERE `tasks`.`id_task` = $id";
          mysqli_query($connexioDB, $query);
       }
    }
@@ -124,11 +125,12 @@ class Tasca
    function modificarEstatTasca()
    {
    }
-   function listarKanban($Estat)
+   function listarKanban()
    {
       include 'connexioBDD.php';
-      // query por mejorar, ahora solo lista todas por estado
-      $query = "SELECT * FROM `tasks` WHERE `state` = '$Estat';";
+      /* query por mejorar, ahora solo lista todas por estado, 
+      habrá que filtrar por id de usuario(con la sesión cargada en el objeto por ejemplo)*/
+      $query = "SELECT * FROM `tasks` WHERE `state` = '$this->Estat';";
       $result = mysqli_query($connexioDB, $query) or trigger_error("Consulta SQL fallida!: $query - Error: " . mysqli_error($connexioDB), E_USER_ERROR);
       while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
          echo '<div class="alert alert-' . $row["importance"] . '" id="tasca' . $row["id_task"] . '" data-bs-toggle="modal" data-bs-target="#modal' . $row["id_task"] . '" draggable="true" ondragstart="drag(event)">';
@@ -164,8 +166,31 @@ class Tasca
    function listarGantt()
    {
       include 'connexioBDD.php';
-      // query por mejorar, ahora solo lista todas por estado
+      // query por mejorar, idem como el método listarKanban
       $query = "SELECT * FROM `tasks`";
-      return $connexioDB->query($query);
+      $modal= $connexioDB->query($query);
+      while ($row = mysqli_fetch_array($modal, MYSQLI_ASSOC)) {
+         echo '<div class="modal fade" id="modal' . $row["id_task"] . '" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                 <div class="modal-dialog">
+                   <div class="modal-content">
+                     <div class="modal-header">
+                       <h1 class="modal-title fs-5" id="ModalLabel"> <i class="fa-solid fa-list-check"></i>' . $row["name_task"] . '</h1>
+                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <div class="modal-body"><h2 class="fs-5"><i class="fa-regular fa-clipboard"></i>Descripción</h2><p>'
+           . $row["description_task"] .
+           '</p><hr><h2 class="fs-5"><i class="fa-regular fa-clock"></i>Fecha</h2><p>' . $row["start_date"] . ' a ' . $row["final_date"] .
+           '</p>
+                   <hr><h2 class="fs-5"><label for="customRange2" class="form-label"><i class="fa-solid fa-percent"></i>Progreso</label></h2></p><p>
+                   <form action="saveGantt.php?id=' . $row["id_task"] . '" method="POST">
+                   <input type="range" name="porcentaje" class="form-range" min="0" max="100" id="customRange'  . $row["id_task"] .  '"></p></div>
+                   <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+           <button type="submit" class="btn btn-primary">Guardar cambios</button></form>
+         </div>
+                   </div>
+                 </div>
+               </div>';
+       }
    }
 }
