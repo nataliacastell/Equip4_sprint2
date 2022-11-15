@@ -166,8 +166,31 @@ class Tasca
    function listarGantt()
    {
       include 'connexioBDD.php';
-      // query por mejorar, ahora solo lista todas por estado
+      // query por mejorar, idem como el método listarKanban
       $query = "SELECT * FROM `tasks`";
-      return $connexioDB->query($query);
+      $modal= $connexioDB->query($query);
+      while ($row = mysqli_fetch_array($modal, MYSQLI_ASSOC)) {
+         echo '<div class="modal fade" id="modal' . $row["id_task"] . '" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                 <div class="modal-dialog">
+                   <div class="modal-content">
+                     <div class="modal-header">
+                       <h1 class="modal-title fs-5" id="ModalLabel"> <i class="fa-solid fa-list-check"></i>' . $row["name_task"] . '</h1>
+                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <div class="modal-body"><h2 class="fs-5"><i class="fa-regular fa-clipboard"></i>Descripción</h2><p>'
+           . $row["description_task"] .
+           '</p><hr><h2 class="fs-5"><i class="fa-regular fa-clock"></i>Fecha</h2><p>' . $row["start_date"] . ' a ' . $row["final_date"] .
+           '</p>
+                   <hr><h2 class="fs-5"><label for="customRange2" class="form-label"><i class="fa-solid fa-percent"></i>Progreso</label></h2></p><p>
+                   <form action="saveGantt.php?id=' . $row["id_task"] . '" method="POST">
+                   <input type="range" name="porcentaje" class="form-range" min="0" max="100" id="customRange'  . $row["id_task"] .  '"></p></div>
+                   <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+           <button type="submit" class="btn btn-primary">Guardar cambios</button></form>
+         </div>
+                   </div>
+                 </div>
+               </div>';
+       }
    }
 }

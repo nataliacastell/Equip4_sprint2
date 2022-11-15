@@ -73,7 +73,9 @@ class Gantt {
 
             html += '<tr class="table-light">';
             if (daysBefore > 0) for (let j = 0; j < daysBefore; j++) html += '<td></td>';
-            html += '<td class="table-light event-cell p-3 bg-' + task[3] + '" id="tasca' + task[5] + '" data-bs-toggle="modal" data-bs-target="#modal'+ task[5]+ '" colspan="' + days + '"><span>' + task[4] + '%</span>' + task[0] + '</td>';
+            // añado esto para añadir opacidad a las tareas al 100%
+            let opaco = (task[4] == 100);
+            html += '<td class="table-light event-cell p-3 bg-' + task[3] + (opaco ? ' opacity-50' : '') +'" id="tasca' + task[5] + '" data-bs-toggle="modal" data-bs-target="#modal'+ task[5]+ '" colspan="' + days + '"><span>' + task[4] + '%</span>' + task[0] + '</td>';
             if (daysAfter > 0) for (let j = 0; j < daysAfter; j++) html += '<td></td>';
             html += '</tr>';
         }
