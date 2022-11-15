@@ -64,8 +64,30 @@ class Tasca
    function modificarTasca($id, $estat)
    {
       include 'connexioBDD.php';
-      $query = "UPDATE `Tasca` SET `Estat` = '$estat' WHERE `Tasca`.`Id` = $id";
-      mysqli_query($connexioDB, $query) or trigger_error("Consulta SQL fallida!: $query - Error: " . mysqli_error($connexioDB), E_USER_ERROR);
+      if ($estat == "InProgress") {
+         $query = "UPDATE `tasks` SET `state` = '$estat', `percentage` = 50 WHERE `tasks`.`id_task` = $id";
+         mysqli_query($connexioDB, $query);
+      } else if ($estat == "Done") {
+         $query = "UPDATE `tasks` SET `state` = '$estat', `percentage` = 100 WHERE `tasks`.`id_task` = $id";
+         mysqli_query($connexioDB, $query);
+      } else {
+         $query = "UPDATE `tasks` SET `state` = '$estat', `percentage` = 0 WHERE `tasks`.`id_task` = $id";
+         mysqli_query($connexioDB, $query);
+      }
+   }
+   function modificarPorcentaje($id, $porcentaje)
+   {
+      include 'connexioBDD.php';
+      if ($porcentaje > 0 && $porcentaje < 100) {
+         $query = "UPDATE `tasks` SET `state` = 'InProgress', `percentage` = $porcentaje WHERE `tasks`.`id_task` = $id";
+         mysqli_query($connexioDB, $query);
+      } else if ($porcentaje == 100) {
+         $query = "UPDATE `tasks` SET `state` = 'Done', `percentage` = $porcentaje WHERE `tasks`.`id_task` = $id";
+         mysqli_query($connexioDB, $query);
+      } else {
+         $query = "UPDATE `tasks` SET `state` = 'ToDo', `percentage` = $porcentaje WHERE `tasks`.`id_task` = $id";
+         mysqli_query($connexioDB, $query);
+      }
    }
    function assignarTasca()
    {
@@ -80,22 +102,22 @@ class Tasca
    {
       include 'connexioBDD.php';
       // query por mejorar, ahora solo lista todas por estado
-      $query = "SELECT * FROM `Tasca` WHERE `Estat` = '$Estat'";
+      $query = "SELECT * FROM `tasks` WHERE `state` = '$Estat';";
       $result = mysqli_query($connexioDB, $query) or trigger_error("Consulta SQL fallida!: $query - Error: " . mysqli_error($connexioDB), E_USER_ERROR);
       while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-         echo '<div class="alert alert-' . $row["grado"] . '" id="tasca' . $row["Id"] . '" data-bs-toggle="modal" data-bs-target="#modal' . $row["Id"] . '" draggable="true" ondragstart="drag(event)">';
-         echo $row["Nom"];
+         echo '<div class="alert alert-' . $row["importance"] . '" id="tasca' . $row["id_task"] . '" data-bs-toggle="modal" data-bs-target="#modal' . $row["id_task"] . '" draggable="true" ondragstart="drag(event)">';
+         echo $row["name_task"];
          echo '</div>';
-         echo '<div class="modal fade" id="modal' . $row["Id"] . '" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+         echo '<div class="modal fade" id="modal' . $row["id_task"] . '" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="ModalLabel"> <i class="fa-solid fa-list-check"></i>' . $row["Nom"] . '</h1>
+                    <h1 class="modal-title fs-5" id="ModalLabel"> <i class="fa-solid fa-list-check"></i>' . $row["name_task"] . '</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body"><h2 class="fs-5"><i class="fa-regular fa-clipboard"></i>Descripción</h2><p>'
-            . $row["Descripcio"] .
-            '</p><hr><h2 class="fs-5"><i class="fa-regular fa-clock"></i>Fecha</h2><p>' . $row["DataInici"] . ' a ' . $row["DataFinal"] .
+            . $row["description_task"] .
+            '</p><hr><h2 class="fs-5"><i class="fa-regular fa-clock"></i>Fecha</h2><p>' . $row["start_date"] . ' a ' . $row["final_date"] .
             '</p></div>
                 </div>
               </div>
@@ -106,7 +128,7 @@ class Tasca
    function jsonGantt()
    {
       include 'connexioBDD.php';
-      $query = $connexioDB->prepare('SELECT Nom, DataInici, DataFinal, grado, porcentaje, id FROM `Tasca`');
+      $query = $connexioDB->prepare('SELECT name_task, `start_date`, final_date, importance, `percentage`, id_task FROM `tasks`');
       $query->execute();
       $result = $query->get_result();
       $outp = $result->fetch_all();
@@ -117,7 +139,7 @@ class Tasca
    {
       include 'connexioBDD.php';
       // query por mejorar, ahora solo lista todas por estado
-      $query = "SELECT * FROM `Tasca`";
+      $query = "SELECT * FROM `tasks`";
       return $connexioDB->query($query);
    }
 }
