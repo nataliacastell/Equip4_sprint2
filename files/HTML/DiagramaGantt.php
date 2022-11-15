@@ -22,7 +22,7 @@ require_once("../PHP/TascaClass.php");
     <div class="table-responsive rounded-top" id="gantt"></div>
     <?php
     $ganntt1 = new Tasca;
-    $ganntt1->listarGantt();
+    $ganntt1->modalGantt();
     ?>
   </main>
   <footer class="bg-black text-center text-lg-center mt-auto">

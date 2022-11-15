@@ -7,7 +7,7 @@ class Tasca
 {
    private $id;
    private $Nom;
-   private $descripcio;
+   private $Descripcio;
    private $Participant;
    private $Estat;
 
@@ -87,7 +87,13 @@ class Tasca
     }*/
    function eliminarTasca()
    {
-   }
+   }   
+   /**
+    * actualiza el estado del kanban y le pone un porcentaje acorde
+    *
+    * @param  mixed $id
+    * @return void
+    */
    function modificarTasca($id)
    {
       include 'connexioBDD.php';
@@ -101,7 +107,14 @@ class Tasca
          $query = "UPDATE `tasks` SET `state` = '$this->Estat', `percentage` = 0 WHERE `tasks`.`id_task` = $id";
          mysqli_query($connexioDB, $query);
       }
-   }
+   }   
+   /**
+    * modifica el porcentaje en la sección gantt y también actualiza el estado para que concuerde con el kanban
+    *
+    * @param  mixed $id
+    * @param  mixed $porcentaje
+    * @return void
+    */
    function modificarPorcentaje($id, $porcentaje)
    {
       include 'connexioBDD.php';
@@ -124,7 +137,12 @@ class Tasca
    }
    function modificarEstatTasca()
    {
-   }
+   }   
+   /**
+    * Lista la fila del kanban según el estado del objeto, este puede ser; ToDo, InProgress, Done
+    *
+    * @return void
+    */
    function listarKanban()
    {
       include 'connexioBDD.php';
@@ -152,7 +170,12 @@ class Tasca
             </div>';
       }
       //mysqli_close($conn);
-   }
+   }   
+   /**
+    * Sirve para pasarle un json al archivo gantt.js y que pueda crear un objeto
+    *
+    * @return void
+    */
    function jsonGantt()
    {
       include 'connexioBDD.php';
@@ -162,8 +185,13 @@ class Tasca
       $outp = $result->fetch_all();
 
       echo json_encode($outp);
-   }
-   function listarGantt()
+   }   
+   /**
+    * Modal para la sección Gantt
+    *
+    * @return void
+    */
+   function modalGantt()
    {
       include 'connexioBDD.php';
       // query por mejorar, idem como el método listarKanban

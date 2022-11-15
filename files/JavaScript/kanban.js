@@ -11,14 +11,15 @@ function drop(ev) {
     var data = ev.dataTransfer.getData("text");
     ev.currentTarget.appendChild(document.getElementById(data));
     let extractNumber = /\d+/g;
-    var data2 = data.match(extractNumber).join([]);
-    var id = ev.currentTarget.id;
+    var tascaId = data.match(extractNumber).join([]);
+    var columnaEstado = ev.currentTarget.id;
     $.ajax({
         url: "ajaxKanban.php", 
         type: "POST",
-        data: { estado: id, tasca: data2 },
+        data: { estado: columnaEstado, tasca: tascaId },
         cache: false,
-        success: function () {  
+        success: function () {
+            // solo debug, quitar  
             console.log("DB actualizada")
         }
     });
