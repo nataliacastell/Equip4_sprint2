@@ -45,7 +45,7 @@
         <li class="nav-item"><a class="nav-link" href="DiagramaGantt.php"><i class="fa-solid fa-chart-gantt"></i>Gantt</a></li>
         <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-square-poll-vertical"></i>Informe</a>
         </li>
-        <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-clipboard-question"></i>Cuestionario</a></li>
+        <li class="nav-item"><a class="nav-link" href="acceptarTasca.php"><i class="fa-solid fa-clipboard-question"></i>Cuestionario</a></li>
         <li class="nav-item"><a class="nav-link" href="#"><i class="fa-solid fa-qrcode"></i>QR</a>
         </li>
       </ul>
