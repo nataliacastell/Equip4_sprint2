@@ -1,6 +1,6 @@
 <?php 
 session_start();
-$_SESSION['id'] = 2;?>
+$_SESSION['id'] = 1;?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -103,7 +103,7 @@ $_SESSION['id'] = 2;?>
                 <div class="form-group">
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" id="gridCheck">
-                  <label class="form-check-label check" for="gridCheck" style="aling-text:left">Aceptar Solucion?</label>
+                  <label class="form-check-label check" for="gridCheck" style="text-align:left">Aceptar Solucion?</label>
                 </div>
                 </div>
                 <div class="form-group " style="margin-top: 20px;" >
