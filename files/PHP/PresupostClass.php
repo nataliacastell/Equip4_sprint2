@@ -6,9 +6,9 @@ $_SESSION['id'] = 1;
 
     class Presupost{
         private $id;
-        private $presupost;
-        private $descripcio;
-        private $id_tasca;
+        private $preu; 
+        private $acceptat;
+        private $ocult;
 
 
         /**
@@ -41,7 +41,7 @@ $_SESSION['id'] = 1;
      */
     function __construct1()
 	{
-		$this->idUsuari=$_SESSION['id'];
+		$this->id=$_SESSION['id'];
 	}
 
         /* Getters */
@@ -50,16 +50,16 @@ $_SESSION['id'] = 1;
             return $this->id;
         }
 
-        public function getPresupost() {
-            return $this->presupost;
+        public function getPreu() {
+            return $this->preu;
         }
 
-        public function getDescripcio() {
-            return $this->descripcio;
+        public function getAcceptat() {
+            return $this->acceptat;
         }
 
-        public function getTasca() {
-            return $this-> id_tasca;
+        public function getOcult() {
+            return $this-> ocult;
         }
 
         /* Setters */
@@ -68,16 +68,16 @@ $_SESSION['id'] = 1;
             $this->id = $id;
         }
 
-        public function setPresupost($presupost) {
-            $this->presupost = $presupost;
+        public function setPreu($preu) {
+            $this->preu = $preu;
         }
 
-        public function setDescripcio($descripcio) {
-            $this->descripcio = $descripcio;
+        public function setAcceptat($acceptat) {
+            $this->acceptat = $acceptat;
         }
 
-        public function setTasca($id_tasca) {
-            $this->id_tasca = $id_tasca;
+        public function setOcult($ocult) {
+            $this->ocult = $ocult;
         }
 
         /* Mètodes / Funcions */
@@ -91,11 +91,18 @@ $_SESSION['id'] = 1;
         }
 
         public function eliminarPresupost($id){
-            include_once 'connexioBDD.php'
+            include_once 'connexioBDD.php';
             if ($linea = mysqli_query ($query= "DELETE ...;")){
                 printf ("Pressupost eliminat");
             }
             $connexioDB->close();
+        }
+
+        public function mostrarTasca(){
+            include 'connexioBDD.php';
+            
+            $query = "SELECT name_task, description_task FROM tasks ;";
+            return $connexioDB->query($query);
         }
 
     }
