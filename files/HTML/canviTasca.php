@@ -7,14 +7,46 @@ $_SESSION['id'] = 1;
 $count = 0;
 $numlinesReals= contarLinies();
 $numPagActual= 1;
+# Consulta insidencia
+function consultaincidencia(){
+    include_once 'connexioBDD.php';
+    $id_user= $SESSION["id"];
+    $query= "
+    SELECT description_recommendation 
+    FROM recommendations 
+    INNER JOIN answers 
+    ON recommendations.id_answer = answers.id_answer 
+    INNER JOIN questions 
+    ON answers.id_question = questions.id_question 
+    INNER JOIN questionnaries 
+    ON questions.id_questionary = questionnaries.id_user 
+    WHERE questionnaries.id_user ='$id_user'; 
+
+    ";
+    $linies = mysqli_query($connexioDB,$query);
+    $connexioDB->close();
+    $linies=mysqli_fetch_array($linies);
+    $text="<p> $linies </p>";
+    echo $text;
+
+}
+
 
 # Consulta les dades necessaries
 function consultaDades(){
     include_once 'connexioBDD.php';
+    $id_user= $SESSION["id"];
+
     $query= "
-        SELECT * 
-        FROM Tasca
-        WHERE Tasca.id='$this->idUsuari'; 
+    SELECT description_recommendation 
+    FROM recommendations 
+    INNER JOIN answers 
+    ON recommendations.id_answer = answers.id_answer 
+    INNER JOIN questions 
+    ON answers.id_question = questions.id_question 
+    INNER JOIN questionnaries 
+    ON questions.id_questionary = questionnaries.id_user 
+    WHERE questionnaries.id_user ='$id_user'; 
 
     ";
     $linies = mysqli_query($connexioDB,$query);

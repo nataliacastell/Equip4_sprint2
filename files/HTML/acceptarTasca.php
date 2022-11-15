@@ -19,7 +19,11 @@
     <div id="container0">
         <div id="container1">
             <p>Inseguredad detectada</p>
-            <p class="inseguretat">Descripcio de la inseguretat (info volcada desde bbdd)</p>
+            <p class="inseguretat"><php?
+              include_once 'canviTasca.php';
+              function consultaincidencia();
+              ?>
+            </p>
             <br>
             <p>Solucions viables:</p>
             
