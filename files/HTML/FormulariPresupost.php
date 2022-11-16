@@ -20,7 +20,7 @@
                 <div class="">
                     <h4 class="mb-3">Presupost</h4>
 
-                    <form action="" method="post" class="needs-validation" novalidate>
+                    <form action="enviarPressupost.php" method="post" class="row g-3" novalidate>
                         <div class="row g-3 ">
 
                             <div class="col-12">
@@ -30,14 +30,14 @@
                                     $resultat = $presupuesto->mostrarTasca();
 
                                     foreach ($resultat as $row) {
-                                        echo '<div class="col-12">',
+                                        echo '<div class="col-auto">',
                                         '<label for="preg2" class="form-label">' . $row['name_task'] . '<br>' . $row['description_task'] . '</label>',
                                         '<div class="input-group has-validation">',
                                         '<span class="input-group-text">€</span>',
                                         '<input type="number" min="0" step="2.5" class="form-control" name="preg'. $row['id_task'].' " placeholder="Cost" required>',
                                         '</div>',
-                                        '<div class="col-12">',
-                                        '<button class="btn btn-primary mb-3" type="submit">Enviar Presupost</button>',
+                                        '<div class="col-auto" style="padding-top:10px">',
+                                        '<button class="btn btn-primary mb-3" type="submit" id="enviar'. $row['id_task'].' ">Enviar Presupost</button>',
                                         '</div>',
                                         '</div>';
                                     };
