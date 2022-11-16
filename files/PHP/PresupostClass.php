@@ -105,10 +105,10 @@ $_SESSION['id'] = 1;
             return $connexioDB->query($query);
         }
 
-        public function afegirPreuTasca(){
-            include 'connexionBDD.php';;
+        public function afegirPreuTasca($valor, $id_task){
+            include 'connexioBDD.php';
 
-          $query = 'INSERT INTO  task_budget VALUES ';
-          return $connexionDB->query($query);
+          $query = "INSERT INTO task_budget(price, id_task, id_budget) VALUES ($valor, $id_task, 1)";
+          return $connexioDB->query($query);
         }
     }
