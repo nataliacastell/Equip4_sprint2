@@ -53,7 +53,7 @@ $_SESSION['id'] = 1;?>
             
             <form >
                 <div class="mb-3">
-                    <select class="solucio" type="text" id="solucio" class="form-select" placeholder="select">
+                    <select class="form-select solucio" type="text" id="solucio" class="form-select" placeholder="select">
                     <option value="0">Seleccione la opcion</option>
                     
                     <?php
@@ -107,7 +107,7 @@ $_SESSION['id'] = 1;?>
                 </div>
                 </div>
                 <div class="form-group " style="margin-top: 20px;" >
-                <select class="custom-select">
+                <select class="form-select  ">
                   <option selected>Quien quieres que lo gestione?</option>
                   <option value="1">Que lo gestione Pymeralia</option>
                   <option value="2">Mi empresa se encarga de gestionarlo</option>
