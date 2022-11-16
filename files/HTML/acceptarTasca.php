@@ -1,6 +1,6 @@
 <?php 
 session_start();
-$_SESSION['id'] = 2;?>
+$_SESSION['id'] = 1;?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -242,14 +242,9 @@ $_SESSION['id'] = 2;?>
                 $.ajax({
                   type:'POST',
                   url:'inserirTasca.php',
-                  data: {solucio:solucio,gridcheck:gridcheck,gestio:gestio},
+                  data: {solucio,gridcheck,gestio},
                   success:function(data){
-                  if (data ==1) {
-                  $("#Msg").html("<div class='alert alert-success' role='alert'>Registrado.</div> ");
-
-                  }else{
-                  $("#Msg").html("<div class='alert alert-danger' role='alert'>Error.</div> ");
-                  }
+                  console.log("enviado");
                 }
               })
                 modal.style.display = "none";
