@@ -40,7 +40,7 @@ $tareas = new Tasca($_SESSION['id']);
 $consulta = $tareas->imprimirTareas();
 
 while ($row = mysqli_fetch_array($consulta, MYSQLI_ASSOC)) {
-    $pdf->Cell(0,10, utf8_decode('Nombre: '.$row['name_task']. ' - '.$row['description_task'].', Estado: '. $row['state'].', Porcentaje: '. $row['percentage'] . '%'),0,1);
+    $pdf->Cell(0,10, utf8_decode($row['name_task']. ' - '.$row['description_task'].', Estado: '. $row['state'].', Porcentaje: '. $row['percentage'] . '%'),0,1);
 }
 $pdf->Output();
 ?>
