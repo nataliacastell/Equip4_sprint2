@@ -18,9 +18,9 @@
         <div class="container p-3">
             <div class="row">
                 <div class="">
-                    <h4 class="mb-3">Presupost</h4>
+                    <h4 class="mb-3">Pressupost</h4>
 
-                    <form action="enviarPressupost.php" method="post" class="row g-3" novalidate>
+                    <form action="enviarPressupost.php" method="post" name="formuario" class="row g-3" novalidate>
                         <div class="row g-3 ">
 
                             <div class="col-12">
@@ -30,19 +30,17 @@
                                     $resultat = $presupuesto->mostrarTasca();
 
                                     foreach ($resultat as $row) {
-                                        echo '<div class="col-auto">',
+                                        echo '<div class="col-auto" style="padding-top:25px">',
                                         '<label for="preg2" class="form-label">' . $row['name_task'] . '<br>' . $row['description_task'] . '</label>',
                                         '<div class="input-group has-validation">',
                                         '<span class="input-group-text">€</span>',
-                                        '<input type="number" min="0" step="2.5" class="form-control" name="preg'. $row['id_task'].' " placeholder="Cost" required>',
-                                        '</div>',
-                                        '<div class="col-auto" style="padding-top:10px">',
-                                        '<button class="btn btn-primary mb-3" type="submit" id="enviar'. $row['id_task'].' ">Enviar Presupost</button>',
+                                        '<input type="number" min="0" step="2.5" class="form-control" name="' . $row['id_task'].' " placeholder="Cost" required>',
                                         '</div>',
                                         '</div>';
                                     };
                                     ?>
-
+                                    <hr class="my-4">
+                                    <button class="w-100 btn btn-primary btn-lg" type="submit" id="enviar">Enviar Presupost</button>,
                                 </label>
                     </form>
                 </div>
