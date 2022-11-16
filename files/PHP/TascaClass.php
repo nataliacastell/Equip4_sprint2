@@ -221,4 +221,9 @@ class Tasca
                </div>';
       }
    }
+   function imprimirTareas(){
+      include 'connexioBDD.php';
+      $query = "SELECT * FROM `tasks`";
+      return $connexioDB->query($query);
+   }
 }
