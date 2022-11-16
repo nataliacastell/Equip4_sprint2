@@ -1,6 +1,6 @@
 <?php 
 session_start();
-$_SESSION['id'] = 1;?>
+$_SESSION['id'] = 2;?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,6 +11,47 @@ $_SESSION['id'] = 1;?>
   <link rel="stylesheet" href="../CSS/style.css">
   <title>Aceptar tareas Presupuesto</title>
   <?php require_once("head.php");?>
+  <style>
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
 </head>
 
 <body class="d-flex flex-column min-vh-100" >
@@ -53,8 +94,8 @@ $_SESSION['id'] = 1;?>
             
             <form >
                 <div class="mb-3">
-                    <select class="form-select solucio" type="text" id="solucio" class="form-select" placeholder="select">
-                    <option value="0">Seleccione la opcion</option>
+                    <select class="form-select solucio" type="text" id="solucio" placeholder="select">
+                    <option>Seleccione la opcion</option>
                     
                     <?php
 
@@ -107,20 +148,19 @@ $_SESSION['id'] = 1;?>
                 </div>
                 </div>
                 <div class="form-group " style="margin-top: 20px;" >
-                <select class="form-select  ">
-                  <option selected>Quien quieres que lo gestione?</option>
-                  <option value="1">Que lo gestione Pymeralia</option>
-                  <option value="2">Mi empresa se encarga de gestionarlo</option>
+                <select class="form-select" id='gestio' placeholder="select">
+                  <option>Seleccione la opcion</option>
+                  <option >Que lo gestione Pymeralia</option>
+                  <option >Mi empresa se encarga de gestionarlo</option>
                 </select>
                 </div>
                 <div class="form-group" style="margin-top: 20px;">
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="button" class="btn btn-primary" id="myBtn" onclick="validador()">Guardar</button>
                 </div>
               </form>
         </div>
         <!-- Cambiar contingut info del div de dalt  -->
 
-        <button class="btn btn-danger">Previous</button>
         <button class="btn btn-success dreta">Next</button>
       </div>
 
@@ -129,5 +169,93 @@ $_SESSION['id'] = 1;?>
             <?php require_once("footer.php");?>
             </footer>
           </body>
-          
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content" style="margin:10%;">
+            <span class="close">&times;</span>
+            <h1 style="margin-left:10%; text-align:center!important;">Confirma los datos:</h1>
+            <p style="margin-left:10%;">Solucion seleccionada:    <label id="texto_nav1"></label></p>
+            <p style="margin-left:10%;">Aceptas la tarea:     <label id="texto_nav2"></label></p>
+            <p style="margin-left:10%;">Quien gestiona la tarea:     <label id="texto_nav3"></label></p>
+            <button type="button" class="btn btn-primary" id="myBtn" onclick='guarda()'>Guardar</button>          </div>
+
+          </div>
+          <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+          <script>
+            function validador(){
+              let solucio="";
+              let gridcheck;
+              let gestio="";
+              solucio = document.getElementById("solucio").value;
+              gridcheck = document.getElementById("gridCheck").checked;
+              gestio = document.getElementById("gestio").value;
+              if(gridcheck!=false){
+                gridcheck=" SI ";
+              }else if(gridcheck==false){
+                gridcheck=" NO "
+              }
+              var campo1 = document.getElementById('texto_nav1');
+              campo1.innerHTML = solucio;
+              var campo2 = document.getElementById('texto_nav2');
+              campo2.innerHTML = gridcheck;
+              var campo3 = document.getElementById('texto_nav3');
+              campo3.innerHTML = gestio;
+
+              // Get the modal
+                var modal = document.getElementById("myModal");
+
+                // Get the button that opens the modal
+                var btn = document.getElementById("myBtn");
+
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+
+                // When the user clicks the button, open the modal 
+                btn.onclick = function() {
+                  modal.style.display = "block";
+                }
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() {
+                  modal.style.display = "none";
+                }
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function(event) {
+                  if (event.target == modal) {
+                    modal.style.display = "none";
+                  }
+                }          
+              }
+              function guarda(){
+              let solucio="";
+              let gridcheck;
+              let gestio="";
+              var modal = document.getElementById("myModal");
+              solucio = document.getElementById("solucio").value;
+              gridcheck = document.getElementById("gridCheck").checked;
+              gestio = document.getElementById("gestio").value;
+              
+                
+                $.ajax({
+                  type:'POST',
+                  url:'inserirTasca.php',
+                  data: {solucio:solucio,gridcheck:gridcheck,gestio:gestio},
+                  success:function(data){
+                  if (data ==1) {
+                  $("#Msg").html("<div class='alert alert-success' role='alert'>Registrado.</div> ");
+
+                  }else{
+                  $("#Msg").html("<div class='alert alert-danger' role='alert'>Error.</div> ");
+                  }
+                }
+              })
+                //modal.style.display = "none";
+
+
+              }
+          </script>
+
           </html>
