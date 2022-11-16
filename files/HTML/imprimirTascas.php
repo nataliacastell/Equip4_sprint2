@@ -35,7 +35,7 @@ function Footer()
 $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
-$pdf->SetFont('Times','',14);
+$pdf->SetFont('Times','',15);
 $tareas = new Tasca($_SESSION['id']);
 $consulta = $tareas->imprimirTareas();
 
