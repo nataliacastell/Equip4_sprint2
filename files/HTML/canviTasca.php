@@ -8,6 +8,32 @@ $count = 0;
 $numlinesReals= contarLinies();
 $numPagActual= 1;
 
+$solucio=$_POST["solucio"];
+$gridcheck=$_POST["gridcheck"];
+$gestio=$_POST["gestio"];
+
+
+function insertarTarea($solucio,$gridcheck,$gestio){
+    include_once '../PHP/connexioBDD.php';
+
+    $id_user=$_SESSION['id'] ;             
+    $query= "
+            SELECT * 
+            FROM recommendations 
+            INNER JOIN answers 
+            ON recommendations.id_answer = answers.id_answer 
+            INNER JOIN questions 
+            ON answers.id_question = questions.id_question 
+            INNER JOIN questionnaries 
+            ON questions.id_questionary = questionnaries.id_questionary 
+            WHERE questionnaries.id_user ='$id_user' 
+            AND recommendations.description_recommendation ='$solucio'
+            ORDER BY recommendations.id_recommendation; 
+            ";
+    $linies = mysqli_query($connexioDB,$query);
+    $linia = mysqli_fetch_array($linies);
+    return $linia;
+}
 
 
 # Consulta insidencia
