@@ -252,7 +252,7 @@ $_SESSION['id'] = 2;?>
                   }
                 }
               })
-                //modal.style.display = "none";
+                modal.style.display = "none";
 
 
               }
