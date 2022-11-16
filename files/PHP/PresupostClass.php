@@ -101,8 +101,14 @@ $_SESSION['id'] = 1;
         public function mostrarTasca(){
             include 'connexioBDD.php';
             
-            $query = "SELECT name_task, description_task FROM tasks ;";
+            $query = "SELECT * FROM tasks ;";
             return $connexioDB->query($query);
         }
 
+        public function afegirPreuTasca(){
+            include 'connexionBDD.php';;
+
+          $query = 'INSERT INTO  task_budget VALUES ';
+          return $connexionDB->query($query);
+        }
     }

@@ -34,15 +34,16 @@
                                         '<label for="preg2" class="form-label">' . $row['name_task'] . '<br>' . $row['description_task'] . '</label>',
                                         '<div class="input-group has-validation">',
                                         '<span class="input-group-text">€</span>',
-                                        '<input type="text" class="form-control" name="preg2" placeholder="Cost" required>',
-
+                                        '<input type="number" min="0" step="2.5" class="form-control" name="preg'. $row['id_task'].' " placeholder="Cost" required>',
+                                        '</div>',
+                                        '<div class="col-12">',
+                                        '<button class="btn btn-primary mb-3" type="submit">Enviar Presupost</button>',
                                         '</div>',
                                         '</div>';
                                     };
                                     ?>
+
                                 </label>
-                                <hr class="my-4">
-                                <button class="w-100 btn btn-primary btn-lg" type="submit">Enviar Presupost</button>
                     </form>
                 </div>
             </div>
