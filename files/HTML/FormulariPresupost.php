@@ -15,36 +15,27 @@
         <?php require_once("header.php"); ?>
     </header>
     <main>
-        <div class="container p-3">
-            <div class="row">
-                <div class="">
-                    <h4 class="mb-3">Pressupost</h4>
+        <div class="container p-1">
+            <form action="enviarPressupost.php" method="post" name="formuario" class="row" novalidate>
+                <h3 class="p-2 mb-3">Presupuesto</h3>
+                <?php
+                $presupuesto = new Presupost();
+                $resultat = $presupuesto->mostrarTasca();
 
-                    <form action="enviarPressupost.php" method="post" name="formuario" class="row g-3" novalidate>
-                        <div class="row g-3 ">
-
-                            <div class="col-12">
-                                <label for="preg1" class="form-label">
-                                    <?php
-                                    $presupuesto = new Presupost();
-                                    $resultat = $presupuesto->mostrarTasca();
-
-                                    foreach ($resultat as $row) {
-                                        echo '<div class="col-auto" style="padding-top:25px">',
-                                        '<label for="preg2" class="form-label">' . $row['name_task'] . '<br>' . $row['description_task'] . '</label>',
-                                        '<div class="input-group has-validation">',
-                                        '<span class="input-group-text">€</span>',
-                                        '<input type="number" min="0" step="2.5" class="form-control" name="' . $row['id_task'].' " placeholder="Cost" required>',
-                                        '</div>',
-                                        '</div>';
-                                    };
-                                    ?>
-                                    <hr class="my-4">
-                                    <button class="w-100 btn btn-primary btn-lg" type="submit" id="enviar">Enviar Presupost</button>,
-                                </label>
-                    </form>
-                </div>
-            </div>
+                foreach ($resultat as $row) {
+                    echo '<div class="mb-3 col-md-6">',
+                    '<label for="preg2" class="form-label mb-0"><p class="h5">' . $row['name_task'] . ' - ' . $row['description_task'] . '</p></label>',
+                    '<div class="input-group has-validation mb-3">',
+                    '<span class="input-group-text">€</span>',
+                    '<input type="number" min="0" step="2.5" class="form-control form-control-lg" name="' . $row['id_task'] . ' " placeholder="Coste" required>',
+                    '</div></div>';
+                };
+                ?>
+                <hr class="my-4">
+                <button class="w-100 btn btn-dark btn-lg" type="submit" id="enviar"><i class="fa-solid fa-hand-holding-dollar"></i>Enviar Presupuesto</button>
+            </form>
+        </div>
+        </div>
     </main>
     <footer class="bg-black text-center text-lg-center mt-auto">
         <?php require_once("footer.php"); ?>

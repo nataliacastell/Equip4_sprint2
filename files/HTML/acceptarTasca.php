@@ -9,7 +9,7 @@ $_SESSION['id'] = 1;?>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../CSS/style.css">
-  <title>Aceptar tareas Presupuesto</title>
+  <title>Pymeshield Aceptar Presupuesto</title>
   <?php require_once("head.php");?>
   <style>
 
@@ -58,12 +58,12 @@ $_SESSION['id'] = 1;?>
   <header class="sticky-top">
   <?php require_once("header.php");?>
   </header class="sticky-top">
+  <main class="pt-0">
 
-
-    <div id="container-fluid" style="margin:5%">
-        <div id="container1">
-            <p >Inseguridad detectada:</p>
-            <p class="inseguretat">
+    <div id="container-fluid" style="margin:5%; margin-top:40px;">
+        <div class="alert alert-danger">
+            <p class="h2 text-center"><i class="fa-solid fa-triangle-exclamation p-3"></i>¡Inseguridad detectada!<i class="fa-solid fa-triangle-exclamation p-3"></i></p>
+            <p class="h3 inseguretat text-center">
 
 
               <?php
@@ -90,12 +90,12 @@ $_SESSION['id'] = 1;?>
               ?>
             </p>
             <br>
-            <p>Soluciones:</p>
+            <p class="h4">Soluciones:</p>
             
             <form >
                 <div class="mb-3">
-                    <select class="form-select solucio" type="text" id="solucio" placeholder="select">
-                    <option>Seleccione la opcion</option>
+                    <select class="form-select form-select-lg solucio" type="text" id="solucio" placeholder="select">
+                    <option>Seleccione la opción</option>
                     
                     <?php
 
@@ -141,30 +141,31 @@ $_SESSION['id'] = 1;?>
                   }
                 ?>
                 -->
-                <div class="form-group">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="gridCheck">
-                  <label class="form-check-label check" for="gridCheck" style="text-align:left">Aceptar Solucion?</label>
-                </div>
-                </div>
-                <div class="form-group " style="margin-top: 20px;" >
-                <select class="form-select" id='gestio' placeholder="select">
-                  <option>Seleccione la opcion</option>
+                <div class="form-group mt-3">
+                <p class="h4">¿Quién quiero que me lo gestione?</p>
+                <select class="form-select form-select-lg" id='gestio' placeholder="select">
+                  <option>Seleccione la opción</option>
                   <option >Que lo gestione Pymeralia</option>
                   <option >Mi empresa se encarga de gestionarlo</option>
                 </select>
                 </div>
-                <div class="form-group" style="margin-top: 20px;">
-                <button type="button" class="btn btn-primary" id="myBtn" onclick="validador()">Guardar</button>
+                <div class="form-group mt-3">
+                <div class="form-check">
+                  <input class="form-check-input p-2" type="checkbox" id="gridCheck">
+                  <label class="form-check-label check mx-1" for="gridCheck" style="font-size: 18px;">¿Aceptar Solución?</label>
+                </div>
+                </div>
+                <div class="form-group mt-4">
+                <button type="button" class="btn btn-dark btn-lg" id="myBtn" onclick="validador()">Guardar</button>
                 </div>
               </form>
         </div>
         <!-- Cambiar contingut info del div de dalt  -->
 
-        <button class="btn btn-success dreta">Next</button>
+        <button class="btn btn-success btn-lg dreta"><i class="fa-solid fa-forward"></i>Siguiente</button>
       </div>
 
-    <main>
+                </main>
         <footer class="bg-black text-center text-lg-center mt-auto">
             <?php require_once("footer.php");?>
             </footer>

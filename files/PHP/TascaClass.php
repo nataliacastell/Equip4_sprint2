@@ -214,7 +214,7 @@ class Tasca
                    <input type="range" name="porcentaje" class="form-range" min="0" max="100" id="customRange'  . $row["id_task"] .  '"></p></div>
                    <div class="modal-footer">
            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-           <button type="submit" class="btn btn-primary">Guardar cambios</button></form>
+           <button type="submit" class="btn btn-dark">Guardar cambios</button></form>
          </div>
                    </div>
                  </div>
