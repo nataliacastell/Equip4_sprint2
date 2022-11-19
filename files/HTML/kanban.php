@@ -45,6 +45,16 @@ require_once("../PHP/TascaClass.php");
         </div>
       </div>
     </div>
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-end align-items-center w-100 mt-3">
+      <div class="toast text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body">
+            ¡Tarea guardada!
+          </div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
   </main>
   <footer class="bg-black text-center text-lg-center mt-auto">
     <?php require_once("footer.php"); ?>

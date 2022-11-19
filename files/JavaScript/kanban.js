@@ -14,13 +14,13 @@ function drop(ev) {
     var tascaId = data.match(extractNumber).join([]);
     var columnaEstado = ev.currentTarget.id;
     $.ajax({
-        url: "ajaxKanban.php", 
+        url: "ajaxKanban.php",
         type: "POST",
         data: { estado: columnaEstado, tasca: tascaId },
         cache: false,
         success: function () {
-            // solo debug, quitar  
-            console.log("DB actualizada")
+            // mostrar toast
+            $(".toast").toast("show")
         }
     });
 }

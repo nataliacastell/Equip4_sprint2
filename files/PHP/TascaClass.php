@@ -156,12 +156,12 @@ class Tasca
          echo '</div>';
          echo '<div class="modal fade" id="modal' . $row["id_task"] . '" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
               <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
+                <div class="modal-content rounded-4 shadow">
+                  <div class="modal-header border-bottom-0">
                     <h1 class="modal-title fs-5" id="ModalLabel"> <i class="fa-solid fa-list-check"></i>' . $row["name_task"] . '</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div class="modal-body"><h2 class="fs-5"><i class="fa-regular fa-clipboard"></i>Descripción</h2><p>'
+                  <div class="modal-body py-0"><h2 class="fs-5"><i class="fa-regular fa-clipboard"></i>Descripción</h2><p>'
             . $row["description_task"] .
             '</p><hr><h2 class="fs-5"><i class="fa-regular fa-clock"></i>Fecha</h2><p>' . $row["start_date"] . ' a ' . $row["final_date"] .
             '</p></div>
@@ -200,27 +200,28 @@ class Tasca
       while ($row = mysqli_fetch_array($modal, MYSQLI_ASSOC)) {
          echo '<div class="modal fade" id="modal' . $row["id_task"] . '" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
                  <div class="modal-dialog">
-                   <div class="modal-content">
-                     <div class="modal-header">
+                   <div class="modal-content rounded-4 shadow">
+                     <div class="modal-header border-bottom-0">
                        <h1 class="modal-title fs-5" id="ModalLabel"> <i class="fa-solid fa-list-check"></i>' . $row["name_task"] . '</h1>
                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                      </div>
-                     <div class="modal-body"><h2 class="fs-5"><i class="fa-regular fa-clipboard"></i>Descripción</h2><p>'
+                     <div class="modal-body py-0"><h2 class="fs-5"><i class="fa-regular fa-clipboard"></i>Descripción</h2><p>'
             . $row["description_task"] .
             '</p><hr><h2 class="fs-5"><i class="fa-regular fa-clock"></i>Fecha</h2><p>' . $row["start_date"] . ' a ' . $row["final_date"] .
             '</p>
                    <hr><h2 class="fs-5"><label for="customRange2" class="form-label"><i class="fa-solid fa-percent"></i>Progreso</label></h2></p><p>
                    <form action="saveGantt.php?id=' . $row["id_task"] . '" method="POST">
                    <input type="range" name="porcentaje" class="form-range" min="0" max="100" id="customRange'  . $row["id_task"] .  '"></p></div>
-                   <div class="modal-footer">
-           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-           <button type="submit" class="btn btn-dark">Guardar cambios</button></form>
-         </div>
+                   <div class="modal-footer flex-column border-top-0">
+                   <button type="submit" class="btn btn-lg btn-dark w-100 mx-0">Guardar cambios</button>
+                   <button type="button" class="btn btn-lg btn-light w-100 mx-0" data-bs-dismiss="modal">Cerrar</button>
+                  </form>
+                  </div>
                    </div>
                  </div>
                </div>';
       }
-   }   
+   }
    /**
     * imprimirTareas
     *

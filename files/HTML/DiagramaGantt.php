@@ -18,12 +18,12 @@ require_once("../PHP/TascaClass.php");
     <?php require_once("header.php"); ?>
   </header>
   <main>
-  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center px-2 pb-2 mb-3 border-bottom">
-        <h1 class="h2">{Nombre del informe}</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center px-2 pb-2 mb-3 border-bottom">
+      <h1 class="h2">{Nombre del informe}</h1>
+      <div class="btn-toolbar mb-2 mb-md-0">
         <a href="imprimirTascas.php" target="_blank" type="button" class="btn btn-dark"><i class="fa-solid fa-file-pdf"></i>Descargar PDF</a>
-        </div>
       </div>
+    </div>
     <div class="table-responsive rounded-top" id="gantt"></div>
     <?php
     $ganntt1 = new Tasca;
