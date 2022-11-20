@@ -31,7 +31,11 @@ class DrawerList(ThemableBehavior, MDList):
 class MyApp (MDApp):    
     def build(self):
         self.title = "PymeShield"
-        Window.size = (400, 600)
+        if platform in ['win', 'linux', 'macosx']:
+            Window.size = (1024, 768)
+        else:
+            Window.size = (400, 600)
+            
         scroll = ScrollView()
 
         list_view = MDList()

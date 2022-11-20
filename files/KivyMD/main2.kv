@@ -15,31 +15,36 @@ MDScreen:
             MDScreen:
                 name: "Inicio"
                 MDLabel:
-                    text:"Screen 1"
+                    text:"Bienvenido a Pymeshield, haz click en el menú para navegar entre secciones"
                     halign: "center"
-            MDScreen:
-                name: "Questionarios"
-                MDLabel:
-                    text:"Questionarios"
-                    halign: "center"
+                    font_style: "H3"
 
             MDScreen:
                 name: "Kanban"
-                MDLabel:
-                    text:"Screen 3"
-                    halign: "center"
+                Image:
+                    source: 'img/kanban.png'
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    size: "48dp", "48dp"
 
             MDScreen:
-                name: "Formacion"
-                MDLabel:
-                    text:"Screen 4"
-                    halign: "center"
-
+                name: "Gantt"
+                Image:
+                    source: 'img/gantt.png'
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    size: "48dp", "48dp"
+            MDScreen:
+                name: "Tareas"
+                Image:
+                    source: 'img/tareas.png'
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    size: "48dp", "48dp"
+                    
             MDScreen:
                 name: "Contacto"
                 MDLabel:
-                    text:"Screen 5"
+                    text:"Si tienes cualquier duda envía un email a: support@pymeralia.com"
                     halign: "center"
+                    font_style: "H3"
 
         MDNavigationDrawer:
             id: nav_drawer
@@ -52,45 +57,53 @@ MDScreen:
 <ContentNavigationDrawer>:
     MDNavigationDrawerMenu:
         MDNavigationDrawerHeader:
-            source: 'ImgProva/Captura2.png'
+            title: "Pymeshield"
+            title_font_style: "H5"
+            text: "Menú"
+            source: "img/logo.png"
+            spacing: "16dp"
+            padding: "12dp", 0, 0, "56dp"
         DrawerClickableItem:
             text: "Inicio"
+            icon: "home"
             on_release: 
                 root.nav_drawer.set_state("close")
                 root.manager.current="Inicio"     
 
         DrawerClickableItem:
-            text: "Questionarios"
+            text: "Kanban"
+            icon: "chart-box"
             on_release: 
                 root.nav_drawer.set_state("close")
-                root.manager.current="Questionarios"  
+                root.manager.current="Kanban"  
 
         DrawerClickableItem:
-            text: "Informes"
+            text: "Gantt"
+            icon: "chart-gantt"
             on_release: 
                 root.nav_drawer.set_state("close")
-                root.manager.current="Informes"  
+                root.manager.current="Gantt"  
         
         DrawerClickableItem:
-            text: "Formacion"
+            text: "Listar tareas"
+            icon: "format-list-bulleted"
             on_release: 
                 root.nav_drawer.set_state("close")
-                root.manager.current="Formacion"  
+                root.manager.current="Tareas"  
 
         DrawerClickableItem:
+            icon: "email"
             text: "Contacto"
             on_release: 
                 root.nav_drawer.set_state("close")
                 root.manager.current="Contacto"  
 
-        MDNavigationDrawerDivider:
-
 <DrawerClickableItem@MDNavigationDrawerItem>
-    focus_color: "#e7e4c0"
+    focus_color: "#efb58c"
     text_color: "#4a4939"
     icon_color: "#4a4939"
     ripple_color: "#c5bdd2"
-    selected_color: "#0c6c4d"
+    selected_color: "#ff6720"
 
 <DrawerLabelItem@MDNavigationDrawerItem>
     text_color: "#4a4939"
