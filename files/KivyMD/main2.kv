@@ -32,19 +32,26 @@ MDScreen:
                     source: 'img/gantt.png'
                     pos_hint: {"center_x": .5, "center_y": .5}
                     size: "48dp", "48dp"
-            MDScreen:
-                name: "Tareas"
-                Image:
-                    source: 'img/tareas.png'
-                    pos_hint: {"center_x": .5, "center_y": .5}
-                    size: "48dp", "48dp"
                     
+            
+            MDScreen:
+                name: "Listado tareas"
+                MDBoxLayout:
+                    MDScrollView:
+                        pos_hint: {'center_y': .42, 'x': .0}
+                        
+                        MDList:
+                            id: container
+
+
             MDScreen:
                 name: "Contacto"
                 MDLabel:
                     text:"Si tienes cualquier duda envía un email a: support@pymeralia.com"
                     halign: "center"
                     font_style: "H3"
+
+                            
 
         MDNavigationDrawer:
             id: nav_drawer
@@ -85,11 +92,11 @@ MDScreen:
                 root.manager.current="Gantt"  
         
         DrawerClickableItem:
-            text: "Listar tareas"
             icon: "format-list-bulleted"
-            on_release: 
+            text: "Listado tareas"
+            on_release:
                 root.nav_drawer.set_state("close")
-                root.manager.current="Tareas"  
+                root.manager.current="Listado tareas" 
 
         DrawerClickableItem:
             icon: "email"
@@ -97,6 +104,8 @@ MDScreen:
             on_release: 
                 root.nav_drawer.set_state("close")
                 root.manager.current="Contacto"  
+        
+
 
 <DrawerClickableItem@MDNavigationDrawerItem>
     focus_color: "#efb58c"

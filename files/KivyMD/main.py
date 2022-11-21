@@ -11,6 +11,9 @@ from kivymd.uix.screen import MDScreen
 from kivy.properties import ObjectProperty
 from kivymd.uix.scrollview import MDScrollView
 from kivy.clock import Clock
+from kivymd.uix.list import OneLineListItem
+
+
 
 class ContentNavigationDrawer(MDBoxLayout):
     manager = ObjectProperty()
@@ -35,18 +38,16 @@ class MyApp (MDApp):
             Window.size = (1024, 768)
         else:
             Window.size = (400, 600)
-            
-        scroll = ScrollView()
-
-        list_view = MDList()
-        for i in range(20):
-
-            items = OneLineIconListItem(text=str(i) + ' item')
-            list_view.add_widget(items)
-
-        scroll.add_widget(list_view)
-
+        
         return Builder.load_file("main2.kv")
+
+    def on_start(self):
+        for i in range(10):
+            self.root.ids.container.add_widget(
+                OneLineListItem(text=f"Tasca numero {i+1}")
+            )
+
+        
 
 
 MyApp().run()

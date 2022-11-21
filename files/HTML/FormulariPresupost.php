@@ -53,7 +53,7 @@
                     <button class="w-100 btn btn-dark btn-lg" type="submit" id="enviar"><i class="fa-solid fa-hand-holding-dollar"></i>Enviar Presupuesto</button>
                 </form>
             </div>
-        </div>
+            </div>
     </main>
     <footer class="bg-black text-center text-lg-center mt-auto">
         <?php require_once("footer.php"); ?>
